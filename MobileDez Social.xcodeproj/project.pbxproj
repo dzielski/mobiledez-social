@@ -8,20 +8,26 @@
 
 /* Begin PBXBuildFile section */
 		168AC9A81D4B88B1008F4F0C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 168AC9A71D4B88B1008F4F0C /* AppDelegate.swift */; };
-		168AC9AA1D4B88B1008F4F0C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 168AC9A91D4B88B1008F4F0C /* ViewController.swift */; };
+		168AC9AA1D4B88B1008F4F0C /* SignInVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 168AC9A91D4B88B1008F4F0C /* SignInVC.swift */; };
 		168AC9AD1D4B88B1008F4F0C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 168AC9AB1D4B88B1008F4F0C /* Main.storyboard */; };
 		168AC9AF1D4B88B1008F4F0C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 168AC9AE1D4B88B1008F4F0C /* Assets.xcassets */; };
 		168AC9B21D4B88B1008F4F0C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 168AC9B01D4B88B1008F4F0C /* LaunchScreen.storyboard */; };
+		168AC9BA1D4B89E0008F4F0C /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 168AC9B91D4B89E0008F4F0C /* GoogleService-Info.plist */; };
+		D7AF959878A4CEFB8274E45A /* Pods_MobileDez_Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AAC1F4087AC54D740E588117 /* Pods_MobileDez_Social.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0882B77D9E48967BDFC56C2C /* Pods-MobileDez Social.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MobileDez Social.release.xcconfig"; path = "Pods/Target Support Files/Pods-MobileDez Social/Pods-MobileDez Social.release.xcconfig"; sourceTree = "<group>"; };
 		168AC9A41D4B88B1008F4F0C /* MobileDez Social.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "MobileDez Social.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		168AC9A71D4B88B1008F4F0C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		168AC9A91D4B88B1008F4F0C /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		168AC9A91D4B88B1008F4F0C /* SignInVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInVC.swift; sourceTree = "<group>"; };
 		168AC9AC1D4B88B1008F4F0C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		168AC9AE1D4B88B1008F4F0C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		168AC9B11D4B88B1008F4F0C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		168AC9B31D4B88B1008F4F0C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		168AC9B91D4B89E0008F4F0C /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		AAC1F4087AC54D740E588117 /* Pods_MobileDez_Social.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MobileDez_Social.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E4FB488DB54F2BB99A3B1087 /* Pods-MobileDez Social.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MobileDez Social.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MobileDez Social/Pods-MobileDez Social.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -29,6 +35,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D7AF959878A4CEFB8274E45A /* Pods_MobileDez_Social.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -40,6 +47,8 @@
 			children = (
 				168AC9A61D4B88B1008F4F0C /* MobileDez Social */,
 				168AC9A51D4B88B1008F4F0C /* Products */,
+				53F122C0C847DFC3A175D368 /* Pods */,
+				AFE86AC6ADE9C8F38BF72608 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -54,14 +63,56 @@
 		168AC9A61D4B88B1008F4F0C /* MobileDez Social */ = {
 			isa = PBXGroup;
 			children = (
+				168AC9BD1D4B92D9008F4F0C /* Controller */,
+				168AC9BC1D4B92D3008F4F0C /* View */,
+				168AC9BB1D4B92CC008F4F0C /* Model */,
 				168AC9A71D4B88B1008F4F0C /* AppDelegate.swift */,
-				168AC9A91D4B88B1008F4F0C /* ViewController.swift */,
 				168AC9AB1D4B88B1008F4F0C /* Main.storyboard */,
 				168AC9AE1D4B88B1008F4F0C /* Assets.xcassets */,
 				168AC9B01D4B88B1008F4F0C /* LaunchScreen.storyboard */,
 				168AC9B31D4B88B1008F4F0C /* Info.plist */,
+				168AC9B91D4B89E0008F4F0C /* GoogleService-Info.plist */,
 			);
 			path = "MobileDez Social";
+			sourceTree = "<group>";
+		};
+		168AC9BB1D4B92CC008F4F0C /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		168AC9BC1D4B92D3008F4F0C /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		168AC9BD1D4B92D9008F4F0C /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				168AC9A91D4B88B1008F4F0C /* SignInVC.swift */,
+			);
+			name = Controller;
+			sourceTree = "<group>";
+		};
+		53F122C0C847DFC3A175D368 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				E4FB488DB54F2BB99A3B1087 /* Pods-MobileDez Social.debug.xcconfig */,
+				0882B77D9E48967BDFC56C2C /* Pods-MobileDez Social.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		AFE86AC6ADE9C8F38BF72608 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				AAC1F4087AC54D740E588117 /* Pods_MobileDez_Social.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -71,9 +122,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 168AC9B61D4B88B1008F4F0C /* Build configuration list for PBXNativeTarget "MobileDez Social" */;
 			buildPhases = (
+				EC251DEE9380A83258BC60C9 /* [CP] Check Pods Manifest.lock */,
 				168AC9A01D4B88AA008F4F0C /* Sources */,
 				168AC9A11D4B88AA008F4F0C /* Frameworks */,
 				168AC9A21D4B88AA008F4F0C /* Resources */,
+				0457DCBD46A609C5A5524CE2 /* [CP] Embed Pods Frameworks */,
+				76A0BE3244844075949D1B83 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -125,6 +179,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				168AC9BA1D4B89E0008F4F0C /* GoogleService-Info.plist in Resources */,
 				168AC9B21D4B88B1008F4F0C /* LaunchScreen.storyboard in Resources */,
 				168AC9AF1D4B88B1008F4F0C /* Assets.xcassets in Resources */,
 				168AC9AD1D4B88B1008F4F0C /* Main.storyboard in Resources */,
@@ -133,12 +188,60 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		0457DCBD46A609C5A5524CE2 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MobileDez Social/Pods-MobileDez Social-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		76A0BE3244844075949D1B83 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MobileDez Social/Pods-MobileDez Social-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		EC251DEE9380A83258BC60C9 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		168AC9A01D4B88AA008F4F0C /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				168AC9AA1D4B88B1008F4F0C /* ViewController.swift in Sources */,
+				168AC9AA1D4B88B1008F4F0C /* SignInVC.swift in Sources */,
 				168AC9A81D4B88B1008F4F0C /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -254,6 +357,7 @@
 		};
 		168AC9B71D4B88B1008F4F0C /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E4FB488DB54F2BB99A3B1087 /* Pods-MobileDez Social.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = "MobileDez Social/Info.plist";
@@ -266,6 +370,7 @@
 		};
 		168AC9B81D4B88B1008F4F0C /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0882B77D9E48967BDFC56C2C /* Pods-MobileDez Social.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = "MobileDez Social/Info.plist";
@@ -295,6 +400,7 @@
 				168AC9B81D4B88B1008F4F0C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

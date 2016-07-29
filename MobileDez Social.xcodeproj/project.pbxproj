@@ -1,0 +1,302 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		168AC9A81D4B88B1008F4F0C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 168AC9A71D4B88B1008F4F0C /* AppDelegate.swift */; };
+		168AC9AA1D4B88B1008F4F0C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 168AC9A91D4B88B1008F4F0C /* ViewController.swift */; };
+		168AC9AD1D4B88B1008F4F0C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 168AC9AB1D4B88B1008F4F0C /* Main.storyboard */; };
+		168AC9AF1D4B88B1008F4F0C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 168AC9AE1D4B88B1008F4F0C /* Assets.xcassets */; };
+		168AC9B21D4B88B1008F4F0C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 168AC9B01D4B88B1008F4F0C /* LaunchScreen.storyboard */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		168AC9A41D4B88B1008F4F0C /* MobileDez Social.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "MobileDez Social.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		168AC9A71D4B88B1008F4F0C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		168AC9A91D4B88B1008F4F0C /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		168AC9AC1D4B88B1008F4F0C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		168AC9AE1D4B88B1008F4F0C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		168AC9B11D4B88B1008F4F0C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		168AC9B31D4B88B1008F4F0C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		168AC9A11D4B88AA008F4F0C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		168AC99B1D4B88AA008F4F0C = {
+			isa = PBXGroup;
+			children = (
+				168AC9A61D4B88B1008F4F0C /* MobileDez Social */,
+				168AC9A51D4B88B1008F4F0C /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		168AC9A51D4B88B1008F4F0C /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				168AC9A41D4B88B1008F4F0C /* MobileDez Social.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		168AC9A61D4B88B1008F4F0C /* MobileDez Social */ = {
+			isa = PBXGroup;
+			children = (
+				168AC9A71D4B88B1008F4F0C /* AppDelegate.swift */,
+				168AC9A91D4B88B1008F4F0C /* ViewController.swift */,
+				168AC9AB1D4B88B1008F4F0C /* Main.storyboard */,
+				168AC9AE1D4B88B1008F4F0C /* Assets.xcassets */,
+				168AC9B01D4B88B1008F4F0C /* LaunchScreen.storyboard */,
+				168AC9B31D4B88B1008F4F0C /* Info.plist */,
+			);
+			path = "MobileDez Social";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		168AC9A31D4B88AA008F4F0C /* MobileDez Social */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 168AC9B61D4B88B1008F4F0C /* Build configuration list for PBXNativeTarget "MobileDez Social" */;
+			buildPhases = (
+				168AC9A01D4B88AA008F4F0C /* Sources */,
+				168AC9A11D4B88AA008F4F0C /* Frameworks */,
+				168AC9A21D4B88AA008F4F0C /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "MobileDez Social";
+			productName = "MobileDez Social";
+			productReference = 168AC9A41D4B88B1008F4F0C /* MobileDez Social.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		168AC99C1D4B88AA008F4F0C /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0800;
+				LastUpgradeCheck = 0800;
+				ORGANIZATIONNAME = mobiledez;
+				TargetAttributes = {
+					168AC9A31D4B88AA008F4F0C = {
+						CreatedOnToolsVersion = 8.0;
+						DevelopmentTeam = W3U2YZ462W;
+						DevelopmentTeamName = "David Zielski (Personal Team)";
+						ProvisioningStyle = Automatic;
+					};
+				};
+			};
+			buildConfigurationList = 168AC99F1D4B88AA008F4F0C /* Build configuration list for PBXProject "MobileDez Social" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 168AC99B1D4B88AA008F4F0C;
+			productRefGroup = 168AC9A51D4B88B1008F4F0C /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				168AC9A31D4B88AA008F4F0C /* MobileDez Social */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		168AC9A21D4B88AA008F4F0C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				168AC9B21D4B88B1008F4F0C /* LaunchScreen.storyboard in Resources */,
+				168AC9AF1D4B88B1008F4F0C /* Assets.xcassets in Resources */,
+				168AC9AD1D4B88B1008F4F0C /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		168AC9A01D4B88AA008F4F0C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				168AC9AA1D4B88B1008F4F0C /* ViewController.swift in Sources */,
+				168AC9A81D4B88B1008F4F0C /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		168AC9AB1D4B88B1008F4F0C /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				168AC9AC1D4B88B1008F4F0C /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		168AC9B01D4B88B1008F4F0C /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				168AC9B11D4B88B1008F4F0C /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		168AC9B41D4B88B1008F4F0C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		168AC9B51D4B88B1008F4F0C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		168AC9B71D4B88B1008F4F0C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = "MobileDez Social/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.mobiledez.MobileDez-Social";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Debug;
+		};
+		168AC9B81D4B88B1008F4F0C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = "MobileDez Social/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.mobiledez.MobileDez-Social";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		168AC99F1D4B88AA008F4F0C /* Build configuration list for PBXProject "MobileDez Social" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				168AC9B41D4B88B1008F4F0C /* Debug */,
+				168AC9B51D4B88B1008F4F0C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		168AC9B61D4B88B1008F4F0C /* Build configuration list for PBXNativeTarget "MobileDez Social" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				168AC9B71D4B88B1008F4F0C /* Debug */,
+				168AC9B81D4B88B1008F4F0C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 168AC99C1D4B88AA008F4F0C /* Project object */;
+}

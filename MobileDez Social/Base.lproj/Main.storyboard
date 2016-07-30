@@ -76,6 +76,9 @@
                                     <constraint firstAttribute="height" constant="68" id="gaT-ag-DZk"/>
                                 </constraints>
                                 <state key="normal" image="LoginWithFacebook2"/>
+                                <connections>
+                                    <action selector="facebookBtnTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="0fK-9d-9WT"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="or" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sHf-Jo-X3l">
                                 <constraints>

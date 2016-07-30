@@ -34,6 +34,7 @@
 		168AC9B91D4B89E0008F4F0C /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		168AC9C01D4C0D95008F4F0C /* FancyView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FancyView.swift; sourceTree = "<group>"; };
 		168AC9C31D4C0E92008F4F0C /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		1692CABE1D4C666700126B89 /* MobileDez Social.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "MobileDez Social.entitlements"; sourceTree = "<group>"; };
 		AAC1F4087AC54D740E588117 /* Pods_MobileDez_Social.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MobileDez_Social.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E4FB488DB54F2BB99A3B1087 /* Pods-MobileDez Social.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MobileDez Social.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MobileDez Social/Pods-MobileDez Social.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -71,6 +72,7 @@
 		168AC9A61D4B88B1008F4F0C /* MobileDez Social */ = {
 			isa = PBXGroup;
 			children = (
+				1692CABE1D4C666700126B89 /* MobileDez Social.entitlements */,
 				168AC9C21D4C0E54008F4F0C /* Util */,
 				168AC9BD1D4B92D9008F4F0C /* Controller */,
 				168AC9BC1D4B92D3008F4F0C /* View */,
@@ -173,6 +175,11 @@
 						DevelopmentTeam = W3U2YZ462W;
 						DevelopmentTeamName = "David Zielski (Personal Team)";
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.Keychain = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -384,6 +391,7 @@
 			baseConfigurationReference = E4FB488DB54F2BB99A3B1087 /* Pods-MobileDez Social.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = "MobileDez Social/MobileDez Social.entitlements";
 				INFOPLIST_FILE = "MobileDez Social/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.mobiledez.MobileDez-Social";
@@ -397,6 +405,7 @@
 			baseConfigurationReference = 0882B77D9E48967BDFC56C2C /* Pods-MobileDez Social.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = "MobileDez Social/MobileDez Social.entitlements";
 				INFOPLIST_FILE = "MobileDez Social/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.mobiledez.MobileDez-Social";

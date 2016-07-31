@@ -20,6 +20,7 @@
 		16F7D4C21D4CF693001B7F1E /* FeedVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16F7D4C11D4CF693001B7F1E /* FeedVC.swift */; };
 		16F7D4C41D4D4A76001B7F1E /* CircleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16F7D4C31D4D4A76001B7F1E /* CircleView.swift */; };
 		16F7D4C61D4D4D86001B7F1E /* RoundBtn.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16F7D4C51D4D4D86001B7F1E /* RoundBtn.swift */; };
+		16F7D4C81D4E36D7001B7F1E /* PostCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16F7D4C71D4E36D7001B7F1E /* PostCell.swift */; };
 		D7AF959878A4CEFB8274E45A /* Pods_MobileDez_Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AAC1F4087AC54D740E588117 /* Pods_MobileDez_Social.framework */; };
 /* End PBXBuildFile section */
 
@@ -41,6 +42,7 @@
 		16F7D4C11D4CF693001B7F1E /* FeedVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedVC.swift; sourceTree = "<group>"; };
 		16F7D4C31D4D4A76001B7F1E /* CircleView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CircleView.swift; sourceTree = "<group>"; };
 		16F7D4C51D4D4D86001B7F1E /* RoundBtn.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoundBtn.swift; sourceTree = "<group>"; };
+		16F7D4C71D4E36D7001B7F1E /* PostCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostCell.swift; sourceTree = "<group>"; };
 		AAC1F4087AC54D740E588117 /* Pods_MobileDez_Social.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MobileDez_Social.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E4FB488DB54F2BB99A3B1087 /* Pods-MobileDez Social.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MobileDez Social.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MobileDez Social/Pods-MobileDez Social.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -108,6 +110,7 @@
 				16044B871D4C17960030FDD9 /* FancyButton.swift */,
 				16F7D4C31D4D4A76001B7F1E /* CircleView.swift */,
 				16F7D4C51D4D4D86001B7F1E /* RoundBtn.swift */,
+				16F7D4C71D4E36D7001B7F1E /* PostCell.swift */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -287,6 +290,7 @@
 				16F7D4C61D4D4D86001B7F1E /* RoundBtn.swift in Sources */,
 				168AC9C11D4C0D95008F4F0C /* FancyView.swift in Sources */,
 				168AC9C41D4C0E92008F4F0C /* Constants.swift in Sources */,
+				16F7D4C81D4E36D7001B7F1E /* PostCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

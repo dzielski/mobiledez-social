@@ -207,12 +207,16 @@
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="9HV-3V-S1E">
                                         <subviews>
-                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="add-image" translatesAutoresizingMaskIntoConstraints="NO" id="Yx9-2P-OfK" customClass="CircleView" customModule="MobileDez_Social" customModuleProvider="target">
+                                            <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="add-image" translatesAutoresizingMaskIntoConstraints="NO" id="Yx9-2P-OfK" customClass="CircleView" customModule="MobileDez_Social" customModuleProvider="target">
                                                 <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <gestureRecognizers/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="49" id="0KZ-B5-jbC"/>
                                                     <constraint firstAttribute="height" constant="49" id="XmS-Fb-jTe"/>
                                                 </constraints>
+                                                <connections>
+                                                    <outletCollection property="gestureRecognizers" destination="waU-zH-V8B" appends="YES" id="tze-Dw-rtR"/>
+                                                </connections>
                                             </imageView>
                                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Add a caption" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="kt6-PV-FVS" customClass="FancyFieldTextBox" customModule="MobileDez_Social" customModuleProvider="target">
                                                 <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="16"/>
@@ -356,6 +360,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="imageAdd" destination="Yx9-2P-OfK" id="UVE-zt-jln"/>
                         <outlet property="tableView" destination="ufY-G4-VcX" id="mY0-c4-Hys"/>
                         <segue destination="BYZ-38-t0r" kind="show" identifier="goToLogin" id="X2c-M4-40G"/>
                     </connections>
@@ -364,6 +369,11 @@
                 <tapGestureRecognizer id="VvH-FP-jjz">
                     <connections>
                         <action selector="signOutTapped:" destination="gh1-Bg-cKx" id="ihn-1w-x3i"/>
+                    </connections>
+                </tapGestureRecognizer>
+                <tapGestureRecognizer id="waU-zH-V8B">
+                    <connections>
+                        <action selector="cameraIconTapped:" destination="gh1-Bg-cKx" id="yZx-eX-vYd"/>
                     </connections>
                 </tapGestureRecognizer>
             </objects>

@@ -64,11 +64,10 @@ class FeedVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UIIm
       
       if let img = FeedVC.imageCache.object(forKey: post.imageURL) {
         cell.configureCell(post: post, img: img)
-        return cell
       } else {
         cell.configureCell(post: post)
-        return cell
       }
+      return cell
 
     } else {
       //should never happen

@@ -117,14 +117,36 @@ class FeedVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UIIm
           print("DZ: Successfully uploaded image to Firebase")
           self.imageSelected = false
           let downloadURL = metadata?.downloadURL()?.absoluteString
+          if let url = downloadURL {
+            self.postToFirebase(imgURL: url)
+          }
         }
       }
-      
-      
     }
+
+  }
+  
+  
+  func postToFirebase (imgURL: String) {
     
+    let post: Dictionary<String, AnyObject> = [
+      "caption": captionField.text!,
+      "imageURL": imgURL,
+      "likes": 0
+    ]
+    
+    let firebasePost = DataService.ds.REF_POSTS.childByAutoId()
+    firebasePost.setValue(post)
+
+    captionField.text = ""
+    imageSelected = false
+    imageAdd.image = UIImage(named: "add-image")
+    
+    tableView.reloadData()
     
   }
+  
+  
   
   @IBAction func signOutTapped(_ sender: AnyObject) {
     let keychainResult = KeychainWrapper.removeObjectForKey(KEY_UID)

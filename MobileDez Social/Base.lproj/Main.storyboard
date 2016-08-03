@@ -30,9 +30,9 @@
                                 </subviews>
                                 <color key="backgroundColor" red="0.011764705882352941" green="0.66274509803921566" blue="0.95686274509803915" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
-                                    <constraint firstItem="lBF-8N-uDh" firstAttribute="centerX" secondItem="CL5-zL-lGe" secondAttribute="centerX" id="SMw-5V-dKH"/>
+                                    <constraint firstItem="lBF-8N-uDh" firstAttribute="centerX" secondItem="CL5-zL-lGe" secondAttribute="centerX" id="iDZ-MW-VPQ"/>
                                     <constraint firstAttribute="height" constant="150" id="uHW-SO-03u"/>
-                                    <constraint firstItem="lBF-8N-uDh" firstAttribute="centerY" secondItem="CL5-zL-lGe" secondAttribute="centerY" id="ukC-RQ-I5K"/>
+                                    <constraint firstItem="lBF-8N-uDh" firstAttribute="centerY" secondItem="CL5-zL-lGe" secondAttribute="centerY" constant="11" id="ukC-RQ-I5K"/>
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jtG-mp-cei">
@@ -176,33 +176,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FoP-sv-eLB" customClass="FancyView" customModule="MobileDez_Social" customModuleProvider="target">
-                                <subviews>
-                                    <imageView contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="sign-out" translatesAutoresizingMaskIntoConstraints="NO" id="2rk-co-qpY">
-                                        <gestureRecognizers/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="48" id="Aap-oF-Qs4"/>
-                                            <constraint firstAttribute="height" constant="30" id="WDf-rg-VaM"/>
-                                        </constraints>
-                                        <connections>
-                                            <outletCollection property="gestureRecognizers" destination="VvH-FP-jjz" appends="YES" id="FIe-F1-i22"/>
-                                        </connections>
-                                    </imageView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Feed" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="i6i-L2-tEV">
-                                        <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="24"/>
-                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                </subviews>
-                                <color key="backgroundColor" red="0.01176470588" green="0.66274509800000003" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
-                                <constraints>
-                                    <constraint firstItem="2rk-co-qpY" firstAttribute="leading" secondItem="FoP-sv-eLB" secondAttribute="leading" constant="16" id="32I-27-jVi"/>
-                                    <constraint firstItem="i6i-L2-tEV" firstAttribute="centerX" secondItem="FoP-sv-eLB" secondAttribute="centerX" id="Il4-UO-gJK"/>
-                                    <constraint firstAttribute="height" constant="65" id="PcJ-Gs-jkI"/>
-                                    <constraint firstItem="i6i-L2-tEV" firstAttribute="centerY" secondItem="2rk-co-qpY" secondAttribute="centerY" id="b3w-7w-uho"/>
-                                    <constraint firstItem="2rk-co-qpY" firstAttribute="top" secondItem="FoP-sv-eLB" secondAttribute="top" constant="25" id="pfm-rP-uMh"/>
-                                </constraints>
-                            </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ewx-HS-H9m" customClass="FancyView" customModule="MobileDez_Social" customModuleProvider="target">
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="9HV-3V-S1E">
@@ -348,6 +321,47 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" fixedFrame="YES" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nO6-W3-R7N">
+                                <frame key="frameInset" height="44" maxX="-7"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                                <color key="backgroundColor" red="0.86666666670000003" green="0.17254901959999999" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <items>
+                                    <barButtonItem image="profileImg" id="60T-Hv-XgW">
+                                        <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <connections>
+                                            <action selector="profileBtnTapped:" destination="gh1-Bg-cKx" id="vlI-si-Md2"/>
+                                            <segue destination="fcD-dY-kzF" kind="show" identifier="goToProfile" id="S9m-Jr-Lsv"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="UQM-Ez-4nr"/>
+                                    <barButtonItem image="white-heart" id="eFr-sW-vNx">
+                                        <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    </barButtonItem>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="B4m-na-QGE"/>
+                                    <barButtonItem image="sign-out-btm" id="JCZ-I0-RTc">
+                                        <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <connections>
+                                            <action selector="signOutTapped:" destination="gh1-Bg-cKx" id="uri-Es-g23"/>
+                                        </connections>
+                                    </barButtonItem>
+                                </items>
+                                <color key="barTintColor" red="0.0078431372549019607" green="0.53333333333333333" blue="0.81960784313725488" alpha="1" colorSpace="calibratedRGB"/>
+                            </toolbar>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FoP-sv-eLB" customClass="FancyView" customModule="MobileDez_Social" customModuleProvider="target">
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="So Social Feed" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="i6i-L2-tEV">
+                                        <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="24"/>
+                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" red="0.01176470588" green="0.66274509800000003" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstItem="i6i-L2-tEV" firstAttribute="centerX" secondItem="FoP-sv-eLB" secondAttribute="centerX" constant="-1" id="Il4-UO-gJK"/>
+                                    <constraint firstAttribute="height" constant="65" id="PcJ-Gs-jkI"/>
+                                    <constraint firstItem="i6i-L2-tEV" firstAttribute="top" secondItem="FoP-sv-eLB" secondAttribute="top" constant="27" id="kE9-Y8-tO2"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" red="0.81176470590000005" green="0.84705882349999995" blue="0.86274509799999999" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
@@ -357,7 +371,7 @@
                             <constraint firstItem="ewx-HS-H9m" firstAttribute="leading" secondItem="6v0-G7-yN7" secondAttribute="leadingMargin" id="KKp-Dt-rgC"/>
                             <constraint firstAttribute="trailing" secondItem="FoP-sv-eLB" secondAttribute="trailing" id="PAh-is-SVG"/>
                             <constraint firstAttribute="trailing" secondItem="ufY-G4-VcX" secondAttribute="trailing" id="R2t-CV-Ecr"/>
-                            <constraint firstItem="xVL-fj-Aw6" firstAttribute="top" secondItem="ufY-G4-VcX" secondAttribute="bottom" id="VFp-CV-GoM"/>
+                            <constraint firstItem="xVL-fj-Aw6" firstAttribute="top" secondItem="ufY-G4-VcX" secondAttribute="bottom" constant="44" id="VFp-CV-GoM"/>
                             <constraint firstItem="ufY-G4-VcX" firstAttribute="leading" secondItem="6v0-G7-yN7" secondAttribute="leading" id="YbP-jL-kHG"/>
                             <constraint firstItem="FoP-sv-eLB" firstAttribute="top" secondItem="6v0-G7-yN7" secondAttribute="top" id="b2p-CH-8Ok"/>
                             <constraint firstItem="ewx-HS-H9m" firstAttribute="trailing" secondItem="6v0-G7-yN7" secondAttribute="trailingMargin" id="xT1-Dd-Rb5"/>
@@ -371,28 +385,108 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WJ9-zQ-2oq" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <tapGestureRecognizer id="VvH-FP-jjz">
-                    <connections>
-                        <action selector="signOutTapped:" destination="gh1-Bg-cKx" id="ihn-1w-x3i"/>
-                    </connections>
-                </tapGestureRecognizer>
                 <tapGestureRecognizer id="waU-zH-V8B">
                     <connections>
                         <action selector="cameraIconTapped:" destination="gh1-Bg-cKx" id="yZx-eX-vYd"/>
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="892" y="137.18140929535232"/>
+            <point key="canvasLocation" x="884.70764617691157" y="136.80000000000001"/>
+        </scene>
+        <!--ProfileVC-->
+        <scene sceneID="Naq-Rn-PHr">
+            <objects>
+                <viewController id="fcD-dY-kzF" customClass="profileVC" customModule="MobileDez_Social" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="NfV-77-P1W"/>
+                        <viewControllerLayoutGuide type="bottom" id="gm9-jz-agN"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="8Nj-n4-fsE">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="lg-profileImg" translatesAutoresizingMaskIntoConstraints="NO" id="xQU-Xn-int" customClass="CircleView" customModule="MobileDez_Social" customModuleProvider="target">
+                                <frame key="frameInset" minX="67" minY="172" width="240" height="240"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="SoSocial" translatesAutoresizingMaskIntoConstraints="NO" id="FWJ-g4-X0g">
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="128" id="041-WB-B60"/>
+                                    <constraint firstAttribute="height" constant="128" id="OMM-za-xi1"/>
+                                </constraints>
+                            </imageView>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter profile name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ryQ-Yq-dXh" customClass="FancyFieldTextBox" customModule="MobileDez_Social" customModuleProvider="target">
+                                <frame key="frameInset" minX="67" minY="445" width="240" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="textColor" red="0.83529411764705885" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" name="Avenir-Medium" family="Avenir" pointSize="18"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hlN-zs-knJ" customClass="FancyButton" customModule="MobileDez_Social" customModuleProvider="target">
+                                <frame key="frameInset" minX="67" minY="490" width="240" height="53"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.2627450980392157" green="0.83921568627450982" blue="0.32156862745098042" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="18"/>
+                                <state key="normal" title="Save Profile">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="saveBtnTapped:" destination="fcD-dY-kzF" eventType="touchUpInside" id="Xnr-UJ-PPM"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Fam-aP-Oxz">
+                                <frame key="frameInset" minX="84" minY="246" width="206" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Click to change profile picture"/>
+                                <connections>
+                                    <action selector="clkImgBtnTapped:" destination="fcD-dY-kzF" eventType="touchUpInside" id="e3Z-XN-efg"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tLs-mp-9R3" customClass="RoundBtn" customModule="MobileDez_Social" customModuleProvider="target">
+                                <frame key="frameInset" minX="137" minY="559" width="80" height="80"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.98431372549019602" green="0.12549019607843137" blue="0.14117647058823529" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" image="Cancel">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="cancelBtnTapped:" destination="fcD-dY-kzF" eventType="touchUpInside" id="hJR-8S-e4G"/>
+                                    <segue destination="gh1-Bg-cKx" kind="show" identifier="goToFeedFrProfile" id="pzA-ju-R2u"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="0.011764705882352941" green="0.66274509803921566" blue="0.95686274509803915" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="FWJ-g4-X0g" firstAttribute="centerX" secondItem="8Nj-n4-fsE" secondAttribute="centerX" id="ES7-SE-YL3"/>
+                            <constraint firstItem="FWJ-g4-X0g" firstAttribute="top" secondItem="NfV-77-P1W" secondAttribute="bottom" constant="8" id="my9-Lx-Trd"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="profileImg" destination="xQU-Xn-int" id="PI0-DP-KAX"/>
+                        <outlet property="profileName" destination="ryQ-Yq-dXh" id="RXM-Do-4iE"/>
+                        <outlet property="profileSaveBtn" destination="hlN-zs-knJ" id="mt8-iK-XPp"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="FEF-rG-92W" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="133.59999999999999" y="820.83958020989508"/>
         </scene>
     </scenes>
     <resources>
+        <image name="Cancel" width="200" height="200"/>
         <image name="LoginWithFacebook2" width="300" height="68"/>
         <image name="SoSocial" width="300" height="300"/>
         <image name="add-image" width="88" height="88"/>
         <image name="add-post" width="88" height="88"/>
         <image name="empty-heart" width="70" height="70"/>
+        <image name="lg-profileImg" width="240" height="240"/>
         <image name="placeholder" width="567" height="312"/>
         <image name="profile" width="113" height="155"/>
-        <image name="sign-out" width="92" height="65"/>
+        <image name="profileImg" width="30" height="30"/>
+        <image name="sign-out-btm" width="42" height="30"/>
+        <image name="white-heart" width="30" height="30"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="pzA-ju-R2u"/>
+    </inferredMetricsTieBreakers>
 </document>

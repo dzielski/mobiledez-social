@@ -34,6 +34,7 @@ class FeedVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UIIm
         imagePicker.delegate = self
       
         DataService.ds.REF_POSTS.observe(.value, with: { (snapshot) in
+          self.posts = [] //gets rid of the doubling of post problem
           if let snapshot = snapshot.children.allObjects as? [FIRDataSnapshot] {
             for snap in snapshot {
               print("SNAP: \(snap)")
@@ -145,6 +146,12 @@ class FeedVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UIIm
     
   }
   
+  @IBAction func profileBtnTapped(_ sender: AnyObject) {
+    
+    performSegue(withIdentifier: "goToProfile", sender: nil)
+    
+    
+  }
   
   
   @IBAction func signOutTapped(_ sender: AnyObject) {

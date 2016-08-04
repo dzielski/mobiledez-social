@@ -13,18 +13,19 @@ import Firebase
 class User {
   
   private var _likeList: String!
-  private var _profileImage: String!
+  private var _imageURL: String!
   private var _provider: String!
   private var _userName: String!
   private var _friendList: String!
+  private var _userID: String!
   private var _userRef: FIRDatabaseReference!
   
   var likeList: String {
     return _likeList
   }
   
-  var profileImage: String {
-    return _profileImage
+  var imageURL: String {
+    return _imageURL
   }
   
   var provider: String {
@@ -39,9 +40,9 @@ class User {
   }
   
   
-  init(likeList: String, profileImage: String, provider: String, userName: String, friendList: String) {
+  init(likeList: String, imageURL: String, provider: String, userName: String, friendList: String) {
     self._likeList = likeList
-    self._profileImage = profileImage
+    self._imageURL = imageURL
     self._provider = provider
     self._userName = userName
     self._friendList = friendList
@@ -50,20 +51,29 @@ class User {
   
   init(userID: String, userData: Dictionary<String, AnyObject>) {
     
-//    self._postID = postID
+    self._userID = userID
     
     if let likeList = userData["likeList"] as? String {
       self._likeList = likeList
     }
     
-    if let profileImage = userData["profileImage"] as? String {
-      self._profileImage = profileImage
+    if let imageURL = userData["imageURL"] as? String {
+      self._imageURL = imageURL
     }
     
-//    if let likes = postData["likes"] as? Int {
-//      self._likes = likes
-//    }
+    if let provider = userData["provider"] as? String {
+      self._provider = provider
+    }
     
+    if let userName = userData["userName"] as? String {
+      self._userName = userName
+    }
+    
+      if let friendList = userData["friendList"] as? String {
+        self._friendList = friendList
+        
+    }
+      
     _userRef = DataService.ds.REF_USER_CURRENT.child(userID)
   }
   

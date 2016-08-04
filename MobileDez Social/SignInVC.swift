@@ -27,7 +27,8 @@ class SignInVC: UIViewController {
   override func viewDidAppear(_ animated: Bool) {
     if let _ = KeychainWrapper.stringForKey(KEY_UID) {
       print("DZ: ID found in keychain")
-      performSegue(withIdentifier: "goToFeed", sender: nil)
+      self.sendThemOnTheirWay()
+//      performSegue(withIdentifier: "goToFeed", sender: nil)
     }
   }
   
@@ -81,6 +82,7 @@ class SignInVC: UIViewController {
               print("DZ: Sussusfully created and authenticated user with email with Firebase")
               if let user = user {
                 let userData = ["provider": user.providerID]
+             
                 self.completeSignIn(id: user.uid, userData: userData)
               }
             }
@@ -95,28 +97,46 @@ class SignInVC: UIViewController {
     let keychainResult = KeychainWrapper.setString(id, forKey: KEY_UID)
     print("DZ: Data saved to keychain = \(keychainResult)")
 
+    // now check to see if they have a user name, if they do send them to the feed
+    // if not send them to the profile page
     
-    //DZ: Todo - Have to test the code below the first time they sign in
-    // I want them to create a profile name and select an image
+    self.sendThemOnTheirWay()
     
-    DataService.ds.REF_USER_CURRENT.observe(.value, with: { (snapshot) in
-    
-      print("DZ: Snap userName = \(snapshot.value!["userName"])")
-      print("DZ: Snap profileImage = \(snapshot.value!["profileImg"])")
-      
-      guard let _ = snapshot.value!["userName"] else {
-        print("DZ: No Username Selected")
-        self.performSegue(withIdentifier: "noUserName", sender: nil)
-        return
-      }
-      
-      self.performSegue(withIdentifier: "goToFeed", sender: nil)
-      
-    })
+//    DataService.ds.REF_USER_CURRENT.observeSingleEvent(of: .value, with: { (snapshot) in
+//      
+//      print("DZ: Snap userName = \(snapshot.value!["userName"]!)")
+//      print("DZ: Snap profileImage = \(snapshot.value!["imageURL"]!)")
+//      
+//      if (snapshot.value!["userName"]!) == nil {
+//        print("DZ: No Username associated with this user")
+//        self.performSegue(withIdentifier: "noUserName", sender: nil)
+//      } else {
+//        self.performSegue(withIdentifier: "goToFeed", sender: nil)
+//
+//      }
+//   
+//    })
     
   }
   
   
+  func sendThemOnTheirWay() {
+
+    DataService.ds.REF_USER_CURRENT.observeSingleEvent(of: .value, with: { (snapshot) in
+      
+      print("DZ: Snap userName = \(snapshot.value!["userName"]!)")
+      print("DZ: Snap profileImage = \(snapshot.value!["imageURL"]!)")
+      
+      if (snapshot.value!["userName"]!) == nil {
+        print("DZ: No Username associated with this user")
+        self.performSegue(withIdentifier: "noUserName", sender: nil)
+      } else {
+        self.performSegue(withIdentifier: "goToFeed", sender: nil)
+        
+      }
+      
+    })
+  }
   
   
 }

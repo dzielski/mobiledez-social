@@ -40,11 +40,7 @@ class PostCell: UITableViewCell {
     likesRef = DataService.ds.REF_USER_CURRENT.child("likes").child(post.postID)
 
     DataService.ds.REF_USERS.child(post.postOwner).observe(.value, with: { (snapshot) in
-//      
-//        let pstownr = post.postOwner
-//        let ursname = snapshot.value!["userName"] as? String
-//        let prfimg = snapshot.value!["imageURL"] as? String
-//      
+    
         self.userNameLbl.text = snapshot.value!["userName"] as? String
 
         let profileImage = snapshot.value!["imageURL"] as? String

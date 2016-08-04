@@ -81,7 +81,6 @@ class Post {
       _likes = _likes - 1
     }
   
-    //DZ HIP - Todo - executing this line doubles the posts
   _postRef.child("likes").setValue(_likes)
 
     

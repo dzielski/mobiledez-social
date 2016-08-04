@@ -94,7 +94,26 @@ class SignInVC: UIViewController {
     DataService.ds.createFirebaseDBUser(uid: id, userData: userData )
     let keychainResult = KeychainWrapper.setString(id, forKey: KEY_UID)
     print("DZ: Data saved to keychain = \(keychainResult)")
-    performSegue(withIdentifier: "goToFeed", sender: nil)
+
+    
+    //DZ: Todo - Have to test the code below the first time they sign in
+    // I want them to create a profile name and select an image
+    
+    DataService.ds.REF_USER_CURRENT.observe(.value, with: { (snapshot) in
+    
+      print("DZ: Snap userName = \(snapshot.value!["userName"])")
+      print("DZ: Snap profileImage = \(snapshot.value!["profileImg"])")
+      
+      guard let _ = snapshot.value!["userName"] else {
+        print("DZ: No Username Selected")
+        self.performSegue(withIdentifier: "noUserName", sender: nil)
+        return
+      }
+      
+      self.performSegue(withIdentifier: "goToFeed", sender: nil)
+      
+    })
+    
   }
   
   

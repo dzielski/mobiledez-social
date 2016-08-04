@@ -19,6 +19,8 @@ class PostCell: UITableViewCell {
   @IBOutlet weak var likeImg: UIImageView!
   
   var likesRef: FIRDatabaseReference!
+  var postOwner: FIRDatabaseReference!
+  
   var post: Post!
   
     override func awakeFromNib() {
@@ -37,6 +39,39 @@ class PostCell: UITableViewCell {
     self.post = post
     likesRef = DataService.ds.REF_USER_CURRENT.child("likes").child(post.postID)
 
+    DataService.ds.REF_USERS.child(post.postOwner).observe(.value, with: { (snapshot) in
+//      
+//        let pstownr = post.postOwner
+//        let ursname = snapshot.value!["userName"] as? String
+//        let prfimg = snapshot.value!["imageURL"] as? String
+//      
+        self.userNameLbl.text = snapshot.value!["userName"] as? String
+
+        let profileImage = snapshot.value!["imageURL"] as? String
+        
+        if let img = FeedVC.profileImageCache.object(forKey: profileImage!) {
+          self.profileImg.image = img
+        
+        } else {
+      
+          let ref = FIRStorage.storage().reference(forURL: profileImage!)
+          ref.data(withMaxSize: 2 * 1024 * 1024, completion: { (data, error) in
+            if error != nil {
+              print("DZ: Unable to download profile image from Firebase storage")
+            } else {
+              print("DZ: Downloaded profile image from Firebase storage")
+              if let imgData = data {
+                if let img = UIImage(data: imgData) {
+                  self.profileImg.image = img
+                  FeedVC.profileImageCache.setObject(img, forKey: profileImage!)
+                }
+              }
+            }
+          })
+        }
+    
+      })
+ 
     self.caption.text = post.caption
     self.likesLbl.text = "\(post.likes)"
     

@@ -19,8 +19,9 @@ class FeedVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UIIm
   var posts = [Post]()
   var imagePicker: UIImagePickerController!
   static var imageCache: Cache<NSString, UIImage> = Cache()
+  static var profileImageCache: Cache<NSString, UIImage> = Cache()
   
-  // DZ Todo - fix this cheesy method to prevent camear image saving to database
+  // DZ Todo - fix this cheesy method to prevent camera image saving to database
   var imageSelected = false
   
     override func viewDidLoad() {

@@ -28,7 +28,6 @@ class SignInVC: UIViewController {
     if let _ = KeychainWrapper.stringForKey(KEY_UID) {
       print("DZ: ID found in keychain")
       self.sendThemOnTheirWay()
-//      performSegue(withIdentifier: "goToFeed", sender: nil)
     }
   }
   
@@ -102,26 +101,14 @@ class SignInVC: UIViewController {
     
     self.sendThemOnTheirWay()
     
-//    DataService.ds.REF_USER_CURRENT.observeSingleEvent(of: .value, with: { (snapshot) in
-//      
-//      print("DZ: Snap userName = \(snapshot.value!["userName"]!)")
-//      print("DZ: Snap profileImage = \(snapshot.value!["imageURL"]!)")
-//      
-//      if (snapshot.value!["userName"]!) == nil {
-//        print("DZ: No Username associated with this user")
-//        self.performSegue(withIdentifier: "noUserName", sender: nil)
-//      } else {
-//        self.performSegue(withIdentifier: "goToFeed", sender: nil)
-//
-//      }
-//   
-//    })
-    
   }
   
   
   func sendThemOnTheirWay() {
 
+    // always start by showing entire feed not only likes
+    DataService.ds.feedTypeAll = true
+    
     DataService.ds.REF_USER_CURRENT.observeSingleEvent(of: .value, with: { (snapshot) in
       
       print("DZ: Snap userName = \(snapshot.value!["userName"]!)")

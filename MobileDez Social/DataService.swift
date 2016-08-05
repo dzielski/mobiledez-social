@@ -54,6 +54,7 @@ class DataService {
     return _REF_PROFILE_IMAGES
   }
   
+  var feedTypeAll = true
   
   func createFirebaseDBUser(uid: String, userData: Dictionary<String, String>) {
     REF_USERS.child(uid).updateChildValues(userData)

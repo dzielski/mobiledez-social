@@ -163,7 +163,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="135.19999999999999" y="138.0809595202399"/>
+            <point key="canvasLocation" x="-121" y="137"/>
         </scene>
         <!--FeedVC-->
         <scene sceneID="iuE-Da-Y2B">
@@ -337,6 +337,9 @@
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="UQM-Ez-4nr"/>
                                     <barButtonItem image="white-heart" id="eFr-sW-vNx">
                                         <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <connections>
+                                            <action selector="feedTypeTapped:" destination="gh1-Bg-cKx" id="UQB-qU-jRr"/>
+                                        </connections>
                                     </barButtonItem>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="B4m-na-QGE"/>
                                     <barButtonItem image="sign-out-btm" id="JCZ-I0-RTc">
@@ -380,6 +383,7 @@
                     </view>
                     <connections>
                         <outlet property="captionField" destination="kt6-PV-FVS" id="Uu5-nV-1fS"/>
+                        <outlet property="feedTypeImage" destination="eFr-sW-vNx" id="c1w-oa-OfH"/>
                         <outlet property="imageAdd" destination="Yx9-2P-OfK" id="UVE-zt-jln"/>
                         <outlet property="tableView" destination="ufY-G4-VcX" id="mY0-c4-Hys"/>
                         <segue destination="BYZ-38-t0r" kind="show" identifier="goToLogin" id="X2c-M4-40G"/>
@@ -488,7 +492,7 @@
         <image name="white-heart" width="30" height="30"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="pzA-ju-R2u"/>
         <segue reference="S9m-Jr-Lsv"/>
+        <segue reference="Z3q-Bn-rwh"/>
     </inferredMetricsTieBreakers>
 </document>

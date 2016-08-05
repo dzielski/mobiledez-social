@@ -101,7 +101,6 @@ class PostCell: UITableViewCell {
     
   }
   
-
   func likeTapped(sender: UITapGestureRecognizer) {
     likesRef.observeSingleEvent(of: .value, with: { (snapshot) in
       if let _ = snapshot.value as? NSNull {

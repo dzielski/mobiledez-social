@@ -15,6 +15,7 @@ class FeedVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UIIm
   @IBOutlet weak var tableView: UITableView!
   @IBOutlet weak var imageAdd: CircleView!
   @IBOutlet weak var captionField: FancyFieldTextBox!
+  @IBOutlet weak var feedTypeImage: UIBarButtonItem!
   
   var posts = [Post]()
   var imagePicker: UIImagePickerController!
@@ -33,21 +34,16 @@ class FeedVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UIIm
         imagePicker = UIImagePickerController()
         imagePicker.allowsEditing = true
         imagePicker.delegate = self
+
       
-        DataService.ds.REF_POSTS.observe(.value, with: { (snapshot) in
-          self.posts = [] //gets rid of the doubling of post problem
-          if let snapshot = snapshot.children.allObjects as? [FIRDataSnapshot] {
-            for snap in snapshot {
-              print("SNAP: \(snap)")
-              if let postDict = snap.value as? Dictionary<String, AnyObject> {
-                let id = snap.key
-                let post = Post(postID: id, postData: postDict)
-                self.posts.append(post)
-              }
-            }
-          }
-          self.tableView.reloadData()
-      })
+        if DataService.ds.feedTypeAll == true {
+          feedTypeImage.image = UIImage(named: "white-heart")
+        } else {
+          feedTypeImage.image = UIImage(named: "list-view")
+        }
+      
+        redrawFeedTable()
+
   }
   
   func numberOfSections(in tableView: UITableView) -> Int {
@@ -55,6 +51,8 @@ class FeedVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UIIm
   }
   
   func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    print("DZ - In numberOfRowsInSection - \(posts.count)")
+    
     return posts.count
   }
   
@@ -130,13 +128,8 @@ class FeedVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UIIm
   
   func postToFirebase (imgURL: String) {
     
- //   let firebaseUser = DataService.ds.REF_USER_CURRENT
-
     let uid = KeychainWrapper.stringForKey(KEY_UID)
-//    let user = DataService.ds.REF_USERS.child(uid!)
-//  
-//    print("DZ: uid = \(uid)")
-//    print("DZ: user = \(user)")
+
     
     let post: Dictionary<String, AnyObject> = [
       "caption": captionField.text!,
@@ -159,8 +152,71 @@ class FeedVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UIIm
   @IBAction func profileBtnTapped(_ sender: AnyObject) {
     
     performSegue(withIdentifier: "goToProfile", sender: nil)
+  }
+  
+  
+  @IBAction func feedTypeTapped(_ sender: AnyObject) {
+
+    if DataService.ds.feedTypeAll == true {
+      print("DZ: Switching to Heart Feed so display Full List Icon")
+      feedTypeImage.image = UIImage(named: "list-view")
+      DataService.ds.feedTypeAll = false
+    } else {
+      print("DZ: Switching to Full Feed so display Heart Icon")
+      feedTypeImage.image = UIImage(named: "white-heart")
+      DataService.ds.feedTypeAll = true
+    }
+    redrawFeedTable()
+  }
+
+  
+  
+  
+  func redrawFeedTable() {
+
+    self.posts = []
+    tableView.reloadData()
     
-    
+    if DataService.ds.feedTypeAll != true {
+
+      DataService.ds.REF_POSTS.observeSingleEvent(of: .value, with: { (snapshot) in
+        if let snapshot = snapshot.children.allObjects as? [FIRDataSnapshot] {
+          for snap in snapshot {
+            print("SNAP: \(snap)")
+            if let postDict = snap.value as? Dictionary<String, AnyObject> {
+              let id = snap.key
+              
+              DataService.ds.REF_USER_CURRENT.child("likes").child(id).observeSingleEvent(of: .value, with: { (snapshot) in
+                if let _ = snapshot.value as? NSNull {
+                  print("DZ: Will not add this post becuase current user did not like it = \(id)")
+                } else {
+                  print("DZ: Adding this post becuase current user did like it = \(id)")
+                  let post = Post(postID: id, postData: postDict)
+                  self.posts.append(post)
+                }
+                self.tableView.reloadData()
+              })
+            }
+          }
+        }
+      })
+    } else {
+      
+      DataService.ds.REF_POSTS.observeSingleEvent(of: .value, with: { (snapshot) in
+        if let snapshot = snapshot.children.allObjects as? [FIRDataSnapshot] {
+          for snap in snapshot {
+            print("SNAP: \(snap)")
+            if let postDict = snap.value as? Dictionary<String, AnyObject> {
+              let id = snap.key
+              let post = Post(postID: id, postData: postDict)
+              self.posts.append(post)
+            }
+          }
+        }
+        self.tableView.reloadData()
+      })
+    }
+
   }
   
   

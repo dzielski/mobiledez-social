@@ -27,6 +27,9 @@ class FeedVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UIIm
   
     override func viewDidLoad() {
         super.viewDidLoad()
+      
+      let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(SignInVC.dismissKeyboard))
+      view.addGestureRecognizer(tap)
 
         tableView.delegate = self
         tableView.dataSource = self
@@ -45,7 +48,13 @@ class FeedVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UIIm
         redrawFeedTable()
 
   }
-  
+
+  //Calls this function when the tap is recognized.
+  func dismissKeyboard() {
+    //Causes the view (or one of its embedded text fields) to resign the first responder status.
+    view.endEditing(true)
+  }
+
   func numberOfSections(in tableView: UITableView) -> Int {
     return 1
   }

@@ -7,8 +7,8 @@
 //
 
 import UIKit
-import FBSDKCoreKit
-import FBSDKLoginKit
+//import FBSDKCoreKit
+//import FBSDKLoginKit
 import Firebase
 import SwiftKeychainWrapper
 
@@ -16,14 +16,14 @@ class SignInVC: UIViewController {
 
   @IBOutlet weak var emailField: FancyFieldTextBox!
   @IBOutlet weak var pwdField: FancyFieldTextBox!
-  
-  
-  
+
+
   override func viewDidLoad() {
     super.viewDidLoad()
 
     let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(SignInVC.dismissKeyboard))
     view.addGestureRecognizer(tap)
+
   }
 
   //Calls this function when the tap is recognized.
@@ -31,7 +31,7 @@ class SignInVC: UIViewController {
     //Causes the view (or one of its embedded text fields) to resign the first responder status.
     view.endEditing(true)
   }
-  
+
   
   override func viewDidAppear(_ animated: Bool) {
     if let _ = KeychainWrapper.stringForKey(KEY_UID) {
@@ -41,39 +41,7 @@ class SignInVC: UIViewController {
   }
   
   
-
-  @IBAction func facebookBtnTapped(_ sender: AnyObject) {
-    
-    let facebookLogin = FBSDKLoginManager()
-    
-    facebookLogin.logIn(withReadPermissions: ["email"], from: self) { (result, error) in
-      if error != nil {
-        print("DZ: Unable to authenticate with Facebook - \(error)")
-      } else if result?.isCancelled == true {
-        print("DZ: User cancelled authentication with Facebook")
-      } else {
-        print("DZ: Successfully authenticated with Facebook")
-        let credential = FIRFacebookAuthProvider.credential(withAccessToken: FBSDKAccessToken.current().tokenString)
-        self.firebaseAuth(credential)
-      }
-    }
-  }
-
-  func firebaseAuth(_ credential: FIRAuthCredential) {
-    FIRAuth.auth()?.signIn(with: credential, completion: { (user, error) in
-      if error != nil {
-        print("DZ: Unable to authenticate Facebook user with Firebase - \(error)")
-      } else {
-        print("DZ: Successfully authenticated Facebook user with Firebase")
-        if let user = user {
-          let userData = ["provider": credential.provider]
-          self.completeSignIn(id: user.uid, userData: userData)
-        }
-      }
-    })
-  }
-
-  @IBAction func signInTapped(_ sender: AnyObject) {
+  @IBAction func logInBtnTapped(_ sender: AnyObject) {
     if let email = emailField.text, let pwd = pwdField.text {
       FIRAuth.auth()?.signIn(withEmail: email, password: pwd, completion: { (user, error) in
         if error == nil {
@@ -90,7 +58,7 @@ class SignInVC: UIViewController {
               print("DZ: Sussusfully created and authenticated user with email with Firebase")
               if let user = user {
                 let userData = ["provider": user.providerID]
-             
+                
                 self.completeSignIn(id: user.uid, userData: userData)
               }
             }
@@ -98,7 +66,70 @@ class SignInVC: UIViewController {
         }
       })
     }
+  
+  
   }
+//  @IBAction func facebookBtnTapped(_ sender: AnyObject) {
+//    
+//    let facebookLogin = FBSDKLoginManager()
+//    
+//    facebookLogin.logIn(withReadPermissions: ["email"], from: self) { (result, error) in
+//      if error != nil {
+//        print("DZ: Unable to authenticate with Facebook - \(error)")
+//      } else if result?.isCancelled == true {
+//        print("DZ: User cancelled authentication with Facebook")
+//      } else {
+//        print("DZ: Successfully authenticated with Facebook")
+//        let credential = FIRFacebookAuthProvider.credential(withAccessToken: FBSDKAccessToken.current().tokenString)
+//        self.firebaseAuth(credential)
+//      }
+//    }
+//
+//  
+//  }
+
+  
+  
+//  func firebaseAuth(_ credential: FIRAuthCredential) {
+//    FIRAuth.auth()?.signIn(with: credential, completion: { (user, error) in
+//      if error != nil {
+//        print("DZ: Unable to authenticate Facebook user with Firebase - \(error)")
+//      } else {
+//        print("DZ: Successfully authenticated Facebook user with Firebase")
+//        if let user = user {
+//          let userData = ["provider": credential.provider]
+//          self.completeSignIn(id: user.uid, userData: userData)
+//        }
+//      }
+//    })
+//  }
+
+//  @IBAction func signInTapped(_ sender: AnyObject) {
+//    if let email = emailField.text, let pwd = pwdField.text {
+//      FIRAuth.auth()?.signIn(withEmail: email, password: pwd, completion: { (user, error) in
+//        if error == nil {
+//          print("DZ: Email user authenticated with Firebase")
+//          if let user = user {
+//            let userData = ["provider": user.providerID]
+//            self.completeSignIn(id: user.uid, userData: userData)
+//          }
+//        } else {
+//          FIRAuth.auth()?.createUser(withEmail: email, password: pwd, completion: { (user, error) in
+//            if error != nil {
+//              print("DZ: Unable to authenticate user with emailwith Firebase - \(error)")
+//            } else {
+//              print("DZ: Sussusfully created and authenticated user with email with Firebase")
+//              if let user = user {
+//                let userData = ["provider": user.providerID]
+//             
+//                self.completeSignIn(id: user.uid, userData: userData)
+//              }
+//            }
+//          })
+//        }
+//      })
+//    }
+//  }
   
   func completeSignIn(id: String, userData: Dictionary<String, String>) {
     DataService.ds.createFirebaseDBUser(uid: id, userData: userData )

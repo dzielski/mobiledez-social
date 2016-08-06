@@ -165,6 +165,9 @@ class SignInVC: UIViewController {
     })
   }
   
+  @IBAction func forgotPassTapped(_ sender: AnyObject) {
+    self.performSegue(withIdentifier: "forgotPassword", sender: nil)
+  }
 
   
   

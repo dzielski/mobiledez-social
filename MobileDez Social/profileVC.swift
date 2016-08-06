@@ -19,6 +19,7 @@ class profileVC: UIViewController, UIImagePickerControllerDelegate, UINavigation
   
   @IBOutlet weak var profileSaveBtn: FancyButton!
   
+  var startingProfileName = ""
   
     override func viewDidLoad() {
       super.viewDidLoad()
@@ -31,6 +32,8 @@ class profileVC: UIViewController, UIImagePickerControllerDelegate, UINavigation
       DataService.ds.REF_USER_CURRENT.observeSingleEvent(of: .value, with: { (snapshot) in
         
         self.profileName.text = snapshot.value!["userName"] as? String
+        
+        self.startingProfileName = self.profileName.text!
         
         // see if there is a image that exists and if so lets use it
         
@@ -95,10 +98,16 @@ class profileVC: UIViewController, UIImagePickerControllerDelegate, UINavigation
   @IBAction func saveBtnTapped(_ sender: AnyObject) {
 
     let usrname = self.profileName.text!
-
+    var checkForDups = true
+    
+    // if this is the user, no need to check for dup name
+    if startingProfileName == usrname {
+      checkForDups = false
+    }
+    
     DataService.ds.REF_USERS.queryOrdered(byChild: "userName").queryEqual(toValue: usrname).observeSingleEvent(of: .value, with: { (snapshot) in
 
-      if snapshot.exists() {
+      if checkForDups && snapshot.exists() {
         print("DZ: snapshot exists for \(usrname)")
         
         let alert = UIAlertController(title: "Duplicate User Name Found", message: "Your User Name needs to be unique like you are, please think of another User Name to use.", preferredStyle: UIAlertControllerStyle.alert)

@@ -50,8 +50,7 @@
                                     <constraint firstAttribute="height" constant="128" id="J5j-Iq-ZBf"/>
                                 </constraints>
                             </imageView>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" placeholder="Password" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="zFN-Np-jF5">
-                                <frame key="frameInset" minX="72" minY="318" width="218" height="30"/>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" placeholder="Password" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="zFN-Np-jF5">
                                 <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="TEo-ww-dAc"/>
@@ -66,15 +65,13 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </textField>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="Rectangle 66" translatesAutoresizingMaskIntoConstraints="NO" id="DLc-ZH-IFK">
-                                <frame key="frameInset" minX="62" minY="313" width="238" height="40"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Rectangle 66" translatesAutoresizingMaskIntoConstraints="NO" id="DLc-ZH-IFK">
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="0nR-xh-6bC"/>
                                     <constraint firstAttribute="width" constant="238" id="YNQ-wZ-DJI"/>
                                 </constraints>
                             </imageView>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" placeholder="Email address" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="LNk-R3-eek">
-                                <frame key="frameInset" minX="72" minY="270" width="218" height="30"/>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" placeholder="Email address" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="LNk-R3-eek">
                                 <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="218" id="eTa-cb-dJk"/>
@@ -89,15 +86,13 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </textField>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="Rectangle 66" translatesAutoresizingMaskIntoConstraints="NO" id="h34-oP-kks">
-                                <frame key="frameInset" minX="64" minY="265" width="238" height="40"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Rectangle 66" translatesAutoresizingMaskIntoConstraints="NO" id="h34-oP-kks">
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="ego-Cx-yOj"/>
                                     <constraint firstAttribute="width" constant="238" id="nxv-tq-vP1"/>
                                 </constraints>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VLL-wZ-h8L">
-                                <frame key="frameInset" minX="64" minY="438" width="236" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VLL-wZ-h8L">
                                 <constraints>
                                     <constraint firstAttribute="width" constant="236" id="cTk-hm-jIB"/>
                                     <constraint firstAttribute="height" constant="30" id="ve9-5R-qu9"/>
@@ -107,8 +102,7 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JwH-d0-uzC">
-                                <frame key="frameInset" minX="62" minY="390" width="238" height="40"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JwH-d0-uzC">
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="Z8M-c2-xXt"/>
                                     <constraint firstAttribute="width" constant="238" id="uSe-0L-hN6"/>
@@ -118,8 +112,7 @@
                                     <action selector="logInBtnTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="MUW-Gu-nn1"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Log In" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="B5n-z1-AdC">
-                                <frame key="frameInset" minX="138" minY="390" width="91" height="40"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Log In" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="B5n-z1-AdC">
                                 <constraints>
                                     <constraint firstAttribute="width" constant="91" id="F2A-6F-SWW"/>
                                 </constraints>
@@ -268,7 +261,7 @@
                                                             <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="14"/>
                                                             <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                                         </textView>
-                                                        <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="Hix-vF-dnf">
+                                                        <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="Hix-vF-dnf">
                                                             <frame key="frameInset" minX="255" minY="337" width="81" height="21"/>
                                                             <subviews>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Likes" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="crI-oF-1eh">

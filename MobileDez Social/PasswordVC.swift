@@ -9,7 +9,7 @@
 import UIKit
 import Firebase
 
-class passwordVC: UIViewController {
+class PasswordVC: UIViewController {
 
   @IBOutlet weak var emailText: UITextField!
     override func viewDidLoad() {

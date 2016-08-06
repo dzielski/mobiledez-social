@@ -11,7 +11,7 @@
 		16044B881D4C17960030FDD9 /* FancyButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16044B871D4C17960030FDD9 /* FancyButton.swift */; };
 		16342EDB1D525F57005374EC /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16342EDA1D525F57005374EC /* User.swift */; };
 		16498A091D555BA600C26A5E /* CircleViewWithBorder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16498A081D555BA600C26A5E /* CircleViewWithBorder.swift */; };
-		16498A0B1D56234600C26A5E /* passwordVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16498A0A1D56234500C26A5E /* passwordVC.swift */; };
+		16498A0B1D56234600C26A5E /* PasswordVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16498A0A1D56234500C26A5E /* PasswordVC.swift */; };
 		168AC9A81D4B88B1008F4F0C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 168AC9A71D4B88B1008F4F0C /* AppDelegate.swift */; };
 		168AC9AA1D4B88B1008F4F0C /* SignInVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 168AC9A91D4B88B1008F4F0C /* SignInVC.swift */; };
 		168AC9AD1D4B88B1008F4F0C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 168AC9AB1D4B88B1008F4F0C /* Main.storyboard */; };
@@ -20,7 +20,7 @@
 		168AC9BA1D4B89E0008F4F0C /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 168AC9B91D4B89E0008F4F0C /* GoogleService-Info.plist */; };
 		168AC9C11D4C0D95008F4F0C /* FancyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 168AC9C01D4C0D95008F4F0C /* FancyView.swift */; };
 		168AC9C41D4C0E92008F4F0C /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 168AC9C31D4C0E92008F4F0C /* Constants.swift */; };
-		16CBD2121D51585E00BB98D8 /* profileVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16CBD2111D51585E00BB98D8 /* profileVC.swift */; };
+		16CBD2121D51585E00BB98D8 /* ProfileVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16CBD2111D51585E00BB98D8 /* ProfileVC.swift */; };
 		16F7D4C21D4CF693001B7F1E /* FeedVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16F7D4C11D4CF693001B7F1E /* FeedVC.swift */; };
 		16F7D4C41D4D4A76001B7F1E /* CircleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16F7D4C31D4D4A76001B7F1E /* CircleView.swift */; };
 		16F7D4C61D4D4D86001B7F1E /* RoundBtn.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16F7D4C51D4D4D86001B7F1E /* RoundBtn.swift */; };
@@ -36,7 +36,7 @@
 		16044B871D4C17960030FDD9 /* FancyButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FancyButton.swift; sourceTree = "<group>"; };
 		16342EDA1D525F57005374EC /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		16498A081D555BA600C26A5E /* CircleViewWithBorder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CircleViewWithBorder.swift; sourceTree = "<group>"; };
-		16498A0A1D56234500C26A5E /* passwordVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = passwordVC.swift; sourceTree = "<group>"; };
+		16498A0A1D56234500C26A5E /* PasswordVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PasswordVC.swift; sourceTree = "<group>"; };
 		168AC9A41D4B88B1008F4F0C /* MobileDez Social.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "MobileDez Social.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		168AC9A71D4B88B1008F4F0C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		168AC9A91D4B88B1008F4F0C /* SignInVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInVC.swift; sourceTree = "<group>"; };
@@ -48,7 +48,7 @@
 		168AC9C01D4C0D95008F4F0C /* FancyView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FancyView.swift; sourceTree = "<group>"; };
 		168AC9C31D4C0E92008F4F0C /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		1692CABE1D4C666700126B89 /* MobileDez Social.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "MobileDez Social.entitlements"; sourceTree = "<group>"; };
-		16CBD2111D51585E00BB98D8 /* profileVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = profileVC.swift; sourceTree = "<group>"; };
+		16CBD2111D51585E00BB98D8 /* ProfileVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileVC.swift; sourceTree = "<group>"; };
 		16F7D4C11D4CF693001B7F1E /* FeedVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedVC.swift; sourceTree = "<group>"; };
 		16F7D4C31D4D4A76001B7F1E /* CircleView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CircleView.swift; sourceTree = "<group>"; };
 		16F7D4C51D4D4D86001B7F1E /* RoundBtn.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoundBtn.swift; sourceTree = "<group>"; };
@@ -136,8 +136,8 @@
 			children = (
 				168AC9A91D4B88B1008F4F0C /* SignInVC.swift */,
 				16F7D4C11D4CF693001B7F1E /* FeedVC.swift */,
-				16CBD2111D51585E00BB98D8 /* profileVC.swift */,
-				16498A0A1D56234500C26A5E /* passwordVC.swift */,
+				16CBD2111D51585E00BB98D8 /* ProfileVC.swift */,
+				16498A0A1D56234500C26A5E /* PasswordVC.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -314,13 +314,13 @@
 				16044B861D4C16790030FDD9 /* FancyFieldTextBox.swift in Sources */,
 				168AC9A81D4B88B1008F4F0C /* AppDelegate.swift in Sources */,
 				16342EDB1D525F57005374EC /* User.swift in Sources */,
-				16498A0B1D56234600C26A5E /* passwordVC.swift in Sources */,
+				16498A0B1D56234600C26A5E /* PasswordVC.swift in Sources */,
 				16F7D4CB1D4E51F5001B7F1E /* DataService.swift in Sources */,
 				16044B881D4C17960030FDD9 /* FancyButton.swift in Sources */,
 				16498A091D555BA600C26A5E /* CircleViewWithBorder.swift in Sources */,
 				16F7D4C61D4D4D86001B7F1E /* RoundBtn.swift in Sources */,
 				168AC9C11D4C0D95008F4F0C /* FancyView.swift in Sources */,
-				16CBD2121D51585E00BB98D8 /* profileVC.swift in Sources */,
+				16CBD2121D51585E00BB98D8 /* ProfileVC.swift in Sources */,
 				168AC9C41D4C0E92008F4F0C /* Constants.swift in Sources */,
 				16F7D4C81D4E36D7001B7F1E /* PostCell.swift in Sources */,
 			);

@@ -9,7 +9,7 @@
 import UIKit
 import Firebase
 
-class profileVC: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+class ProfileVC: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
 
   
   @IBOutlet weak var profileImg: CircleView!
@@ -28,6 +28,8 @@ class profileVC: UIViewController, UIImagePickerControllerDelegate, UINavigation
       profileImagePicker.allowsEditing = true
       profileImagePicker.delegate = self
       
+      let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(ProfileVC.dismissKeyboard))
+      view.addGestureRecognizer(tap)
       
       DataService.ds.REF_USER_CURRENT.observeSingleEvent(of: .value, with: { (snapshot) in
         
@@ -68,6 +70,12 @@ class profileVC: UIViewController, UIImagePickerControllerDelegate, UINavigation
       })
    
     }
+  
+  //Calls this function when the tap is recognized.
+  func dismissKeyboard() {
+    //Causes the view (or one of its embedded text fields) to resign the first responder status.
+    view.endEditing(true)
+  }
 
   func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {
     if let image = info[UIImagePickerControllerEditedImage] as? UIImage {

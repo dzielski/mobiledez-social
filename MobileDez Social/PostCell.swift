@@ -39,7 +39,7 @@ class PostCell: UITableViewCell {
     self.post = post
     likesRef = DataService.ds.REF_USER_CURRENT.child("likes").child(post.postID)
 
-    DataService.ds.REF_USERS.child(post.postOwner).observe(.value, with: { (snapshot) in
+    DataService.ds.REF_USERS.child(post.postOwner).observeSingleEvent(of: .value, with: { (snapshot) in
     
         self.userNameLbl.text = snapshot.value!["userName"] as? String
 

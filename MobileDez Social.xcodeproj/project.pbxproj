@@ -125,8 +125,8 @@
 				16044B871D4C17960030FDD9 /* FancyButton.swift */,
 				16F7D4C31D4D4A76001B7F1E /* CircleView.swift */,
 				16F7D4C51D4D4D86001B7F1E /* RoundBtn.swift */,
-				16F7D4C71D4E36D7001B7F1E /* PostCell.swift */,
 				16498A081D555BA600C26A5E /* CircleViewWithBorder.swift */,
+				16F7D4C71D4E36D7001B7F1E /* PostCell.swift */,
 			);
 			name = View;
 			sourceTree = "<group>";

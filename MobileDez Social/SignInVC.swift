@@ -149,6 +149,10 @@ class SignInVC: UIViewController {
     // always start by showing entire feed not only likes
     DataService.ds.feedTypeAll = true
     
+    // flush cache so we are fresssssh
+    FeedVC.imageCache.removeAllObjects()
+    FeedVC.profileImageCache.removeAllObjects()
+  
     DataService.ds.REF_USER_CURRENT.observeSingleEvent(of: .value, with: { (snapshot) in
       
       print("DZ: Snap userName = \(snapshot.value!["userName"]!)")

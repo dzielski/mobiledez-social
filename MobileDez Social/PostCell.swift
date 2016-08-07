@@ -8,6 +8,7 @@
 
 import UIKit
 import Firebase
+import SwiftKeychainWrapper
 
 class PostCell: UITableViewCell {
   
@@ -17,6 +18,9 @@ class PostCell: UITableViewCell {
   @IBOutlet weak var caption: UITextView!
   @IBOutlet weak var likesLbl: UILabel!
   @IBOutlet weak var likeImg: UIImageView!
+  @IBOutlet weak var removeBtnView: UIButton!
+  
+  var delegate: UIViewController?
   
   var likesRef: FIRDatabaseReference!
   var postOwner: FIRDatabaseReference!
@@ -71,6 +75,15 @@ class PostCell: UITableViewCell {
     self.caption.text = post.caption
     self.likesLbl.text = "\(post.likes)"
     
+    // if post owner equals current user then display remove button
+    let uid = KeychainWrapper.stringForKey(KEY_UID)
+
+    if post.postOwner == uid {
+      self.removeBtnView.isHidden = false
+    } else {
+      self.removeBtnView.isHidden = true
+    }
+    
     if img != nil {
       self.postImg.image = img
     } else {
@@ -116,6 +129,40 @@ class PostCell: UITableViewCell {
     
   }
   
+  @IBAction func removeBtnTapped(_ sender: AnyObject) {
+
+    // button only visible if this is the current users post so delete it
+
+    // Would like to do a "Are You Sure You Want To Delete"
+    let alert = UIAlertController(title: "Are You Sure You Want To Remove This Post?", message: "This will be deleted forever and ever if you select Yes.", preferredStyle: UIAlertControllerStyle.alert)
+
+    let actionYes = UIAlertAction(title: "Yes", style: .default) { (action:UIAlertAction) in
+      print("DZ: You've pressed the Yes button");
+      
+      //     try and remove it from FB storage
+      DataService.ds.REF_POST_IMAGES.child(self.post.imgID).delete(completion: { (error) in
+        if error != nil {
+          print("DZ: Unable to delete image from Firebase storage")
+        } else {
+          print("DZ: Deleted image from Firebase storage")
+          // OK deleted from storage so delete from cache and then from posts
+          FeedVC.imageCache.removeObject(forKey: self.post.imageURL)
+          DataService.ds.REF_POSTS.child(self.post.postID).removeValue()
+          NotificationCenter.default.post(name: feedRedrawName, object: nil)
+        }
+      })
+
+    }
+    
+    let actionNo = UIAlertAction(title: "No", style: .default) { (action:UIAlertAction) in
+      print("DZ: You've pressed No button");
+    }
+    
+    alert.addAction(actionYes)
+    alert.addAction(actionNo)
+    delegate?.present(alert, animated: true, completion: nil)
+  
+  }
   
   
 }

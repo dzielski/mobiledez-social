@@ -17,6 +17,7 @@ class Post {
   private var _likes: Int!
   private var _postID: String!
   private var _postOwner: String!
+  private var _imgID: String!
 
   private var _postRef: FIRDatabaseReference!
   
@@ -39,13 +40,19 @@ class Post {
   var postOwner: String {
     return _postOwner
   }
-
   
-  init(caption: String, imageURL: String, likes: Int, postOwner: String) {
+  var imgID: String {
+    return _imgID
+  }
+  
+  
+  init(caption: String, imageURL: String, likes: Int, postOwner: String, imgID: String) {
     self._caption = caption
     self._imageURL = imageURL
     self._likes = likes
     self._postOwner = postOwner
+    self._imgID = imgID
+    
   }
 
   
@@ -67,6 +74,10 @@ class Post {
     
     if let postOwner = postData["postOwner"] as? String {
       self._postOwner = postOwner
+    }
+    
+    if let imgID = postData["imgID"] as? String {
+      self._imgID = imgID
     }
     
     _postRef = DataService.ds.REF_POSTS.child(_postID)

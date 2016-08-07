@@ -13,6 +13,6 @@ let WHITE: CGFloat = 255.0 / 255.0
 
 let KEY_UID = "uid"
 
-
+let feedRedrawName = Notification.Name("NotificationIdentifier")
 
 

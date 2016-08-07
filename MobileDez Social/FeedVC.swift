@@ -16,11 +16,14 @@ class FeedVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UIIm
   @IBOutlet weak var imageAdd: CircleView!
   @IBOutlet weak var captionField: FancyFieldTextBox!
   @IBOutlet weak var feedTypeImage: UIBarButtonItem!
+
   
   var posts = [Post]()
   var imagePicker: UIImagePickerController!
   static var imageCache: Cache<NSString, UIImage> = Cache()
   static var profileImageCache: Cache<NSString, UIImage> = Cache()
+  
+//  let feedRedrawName = Notification.Name("NotificationIdentifier")
   
   // DZ Todo - fix this cheesy method to prevent camera image saving to database
   var imageSelected = false
@@ -44,6 +47,9 @@ class FeedVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UIIm
         } else {
           feedTypeImage.image = UIImage(named: "list-view")
         }
+
+        // setup a redraw feed notification we can call from table cell
+        NotificationCenter.default.addObserver(self, selector: #selector(FeedVC.redrawFeedTable), name: feedRedrawName, object: nil)
       
         redrawFeedTable()
 
@@ -62,7 +68,22 @@ class FeedVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UIIm
   func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
     print("DZ - In numberOfRowsInSection - \(posts.count)")
     
-    return posts.count
+    if posts.count == 0 {
+
+      let messageLabel: UILabel = UILabel(frame: CGRect(x: 0, y: 0, width: 100, height: 100))
+      messageLabel.text = "You do not have any liked posts. Please click below to go back to the feed and like a few posts!\n|\n|\nV"
+      messageLabel.textColor = UIColor.black()
+      messageLabel.numberOfLines = 0
+      messageLabel.textAlignment = .center
+      messageLabel.font = UIFont(name: "Avenir", size: 20)
+      messageLabel.sizeToFit()
+      self.tableView.backgroundView = messageLabel
+      self.tableView.separatorStyle = .none
+      
+      return 0
+    } else {
+      return posts.count
+    }
   }
   
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -70,6 +91,8 @@ class FeedVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UIIm
     let post = posts[indexPath.row]
    
     if let cell = tableView.dequeueReusableCell(withIdentifier: "PostCell") as? PostCell {
+      
+      cell.delegate = self
       
       if let img = FeedVC.imageCache.object(forKey: post.imageURL) {
         cell.configureCell(post: post, img: img)
@@ -126,7 +149,7 @@ class FeedVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UIIm
           self.imageSelected = false
           let downloadURL = metadata?.downloadURL()?.absoluteString
           if let url = downloadURL {
-            self.postToFirebase(imgURL: url)
+            self.postToFirebase(imgURL: url, imgID: imgUid)
           }
         }
       }
@@ -135,7 +158,7 @@ class FeedVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UIIm
   }
   
   
-  func postToFirebase (imgURL: String) {
+  func postToFirebase (imgURL: String, imgID: String) {
     
     let uid = KeychainWrapper.stringForKey(KEY_UID)
 
@@ -144,8 +167,12 @@ class FeedVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UIIm
       "caption": captionField.text!,
       "imageURL": imgURL,
       "likes": 0,
-      "postOwner": uid!
+      "postOwner": uid!,
+      "imgID": imgID
     ]
+    
+
+    
     
     let firebasePost = DataService.ds.REF_POSTS.childByAutoId()
     firebasePost.setValue(post)
@@ -154,7 +181,7 @@ class FeedVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UIIm
     imageSelected = false
     imageAdd.image = UIImage(named: "add-image")
     
-    tableView.reloadData()
+    redrawFeedTable()
     
   }
   
@@ -227,8 +254,8 @@ class FeedVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UIIm
     }
 
   }
-  
-  
+
+
   @IBAction func signOutTapped(_ sender: AnyObject) {
     let keychainResult = KeychainWrapper.removeObjectForKey(KEY_UID)
     print("DZ: ID removed from keychain \(keychainResult)")

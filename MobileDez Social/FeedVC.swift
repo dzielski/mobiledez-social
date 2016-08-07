@@ -10,7 +10,7 @@ import UIKit
 import Firebase
 import SwiftKeychainWrapper
 
-class FeedVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+class FeedVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextFieldDelegate {
 
   @IBOutlet weak var tableView: UITableView!
   @IBOutlet weak var imageAdd: CircleView!
@@ -41,6 +41,7 @@ class FeedVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UIIm
         imagePicker.allowsEditing = true
         imagePicker.delegate = self
 
+        captionField.delegate = self
       
         if DataService.ds.feedTypeAll == true {
           feedTypeImage.image = UIImage(named: "white-heart")
@@ -55,6 +56,11 @@ class FeedVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UIIm
 
   }
 
+  func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+    self.view.endEditing(true)
+    return false
+  }
+  
   //Calls this function when the tap is recognized.
   func dismissKeyboard() {
     //Causes the view (or one of its embedded text fields) to resign the first responder status.
@@ -111,6 +117,7 @@ class FeedVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UIIm
     if let image = info[UIImagePickerControllerEditedImage] as? UIImage {
       imageAdd.image = image
       imageSelected = true
+      self.captionField.becomeFirstResponder();
     } else {
       print("DZ: A valid image was not selected")
     }
@@ -125,12 +132,22 @@ class FeedVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UIIm
   
   @IBAction func postBtnTapped(_ sender: AnyObject) {
     
+    
     guard let caption = captionField.text, caption != "" else {
       print("DZ: Caption must be entered")
+      let alert = UIAlertController(title: "Caption Is Empty", message: "You need to add a caption for a post. Please enter one now.", preferredStyle: UIAlertControllerStyle.alert)
+      alert.addAction(UIAlertAction(title: "Try Again", style: UIAlertActionStyle.default, handler: nil))
+      self.present(alert, animated: true, completion: nil)
+      self.captionField.becomeFirstResponder();
       return
     }
+
+    dismissKeyboard()
     
     guard let img = imageAdd.image, imageSelected == true else {
+      let alert = UIAlertController(title: "Picture Is Missing", message: "You need to add an image to post. Please try again.", preferredStyle: UIAlertControllerStyle.alert)
+      alert.addAction(UIAlertAction(title: "Try Again", style: UIAlertActionStyle.default, handler: nil))
+      self.present(alert, animated: true, completion: nil)
       print("DZ: Image must be selected")
       return
     }
@@ -143,7 +160,11 @@ class FeedVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UIIm
       
       DataService.ds.REF_POST_IMAGES.child(imgUid).put(imgData, metadata: metadata) {(metadata, error) in
         if error != nil {
-          print("DZ: Unabel to upload image to Firebase")
+          print("DZ: Unable to upload image to Firebase")
+          let alert = UIAlertController(title: "Error Saving Post", message: "Something went wrong saving your post to the database.", preferredStyle: UIAlertControllerStyle.alert)
+          alert.addAction(UIAlertAction(title: "Try Again", style: UIAlertActionStyle.default, handler: nil))
+          self.present(alert, animated: true, completion: nil)
+
         } else {
           print("DZ: Successfully uploaded image to Firebase")
           self.imageSelected = false

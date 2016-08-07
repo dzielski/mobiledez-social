@@ -77,7 +77,7 @@ class FeedVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UIIm
     if posts.count == 0 {
 
       let messageLabel: UILabel = UILabel(frame: CGRect(x: 0, y: 0, width: 100, height: 100))
-      messageLabel.text = "You do not have any liked posts. Please click below to go back to the feed and like a few posts!\n|\n|\nV"
+      messageLabel.text = "There are no posts to show you in this feed. Please select another feed type below."
       messageLabel.textColor = UIColor.black()
       messageLabel.numberOfLines = 0
       messageLabel.textAlignment = .center

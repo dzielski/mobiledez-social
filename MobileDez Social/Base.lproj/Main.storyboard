@@ -223,15 +223,15 @@
                                     <constraint firstAttribute="height" constant="65" id="pv4-ot-Dnr"/>
                                 </constraints>
                             </view>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="383" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="ufY-G4-VcX">
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <color key="sectionIndexBackgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="383" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="ufY-G4-VcX">
+                                <color key="backgroundColor" red="0.81176470588235294" green="0.84705882352941175" blue="0.86274509803921573" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="sectionIndexBackgroundColor" red="0.81176470588235294" green="0.84705882352941175" blue="0.86274509803921573" alpha="1" colorSpace="calibratedRGB"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="PostCell" rowHeight="383" id="eJ2-49-4wh" customClass="PostCell" customModule="MobileDez_Social" customModuleProvider="target">
                                         <frame key="frameInset" minY="28" width="375" height="383"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="eJ2-49-4wh" id="mNW-8g-4pf">
-                                            <frame key="frameInset" width="375" height="382"/>
+                                            <frame key="frameInset" width="375" height="383"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OcD-lF-Psl" customClass="FancyView" customModule="MobileDez_Social" customModuleProvider="target">
@@ -321,6 +321,7 @@
                                                 <constraint firstAttribute="bottom" secondItem="OcD-lF-Psl" secondAttribute="bottom" constant="8" id="wtK-IS-lsN"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <color key="backgroundColor" red="0.81176470588235294" green="0.84705882352941175" blue="0.86274509803921573" alpha="1" colorSpace="calibratedRGB"/>
                                         <connections>
                                             <outlet property="caption" destination="6GA-Gr-gca" id="vCP-wa-qdG"/>
                                             <outlet property="likeImg" destination="Toq-oT-pXf" id="Ned-oC-V1j"/>
@@ -715,7 +716,7 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="X2c-M4-40G"/>
-        <segue reference="pzA-ju-R2u"/>
+        <segue reference="Z3q-Bn-rwh"/>
         <segue reference="S9m-Jr-Lsv"/>
     </inferredMetricsTieBreakers>
 </document>

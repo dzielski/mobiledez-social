@@ -9,7 +9,7 @@
 import UIKit
 import Firebase
 
-class ProfileVC: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+class ProfileVC: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextFieldDelegate {
 
   
   @IBOutlet weak var profileImg: CircleView!
@@ -27,6 +27,8 @@ class ProfileVC: UIViewController, UIImagePickerControllerDelegate, UINavigation
       profileImagePicker = UIImagePickerController()
       profileImagePicker.allowsEditing = true
       profileImagePicker.delegate = self
+      
+      profileName.delegate = self
       
       let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(ProfileVC.dismissKeyboard))
       view.addGestureRecognizer(tap)
@@ -75,6 +77,11 @@ class ProfileVC: UIViewController, UIImagePickerControllerDelegate, UINavigation
   func dismissKeyboard() {
     //Causes the view (or one of its embedded text fields) to resign the first responder status.
     view.endEditing(true)
+  }
+  
+  func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+    self.view.endEditing(true)
+    return false
   }
 
   func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {

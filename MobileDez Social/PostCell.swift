@@ -73,6 +73,7 @@ class PostCell: UITableViewCell {
       })
  
     self.caption.text = post.caption
+    self.caption.isUserInteractionEnabled = false
     self.likesLbl.text = "\(post.likes)"
     
     // if post owner equals current user then display remove button
@@ -120,10 +121,17 @@ class PostCell: UITableViewCell {
         self.likeImg.image = UIImage(named: "filled-heart")
         self.post.adjustLikes(addLike: true)
         self.likesRef.setValue(true)
+        self.likesLbl.text = "\(self.post.likes)"
       } else {
         self.likeImg.image = UIImage(named: "empty-heart")
         self.post.adjustLikes(addLike: false)
         self.likesRef.removeValue()
+        
+        // if we are in the likes screen and a user unlikes post - we need to redraw
+        self.likesLbl.text = "\(self.post.likes)"
+        if DataService.ds.feedTypeAll != true {
+          NotificationCenter.default.post(name: feedRedrawName, object: nil)
+        }
       }
     })
     

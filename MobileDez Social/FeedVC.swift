@@ -168,12 +168,10 @@ class FeedVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UIIm
       "imageURL": imgURL,
       "likes": 0,
       "postOwner": uid!,
-      "imgID": imgID
+      "imgID": imgID,
+      "date": FIRServerValue.timestamp()
     ]
-    
-
-    
-    
+  
     let firebasePost = DataService.ds.REF_POSTS.childByAutoId()
     firebasePost.setValue(post)
 
@@ -215,10 +213,10 @@ class FeedVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UIIm
     
     if DataService.ds.feedTypeAll != true {
 
-      DataService.ds.REF_POSTS.observeSingleEvent(of: .value, with: { (snapshot) in
+      DataService.ds.REF_POSTS.queryOrdered(byChild: "date").observeSingleEvent(of: .value, with: { (snapshot) in
         if let snapshot = snapshot.children.allObjects as? [FIRDataSnapshot] {
           for snap in snapshot {
-            print("SNAP: \(snap)")
+            print("DZ: SNAP: \(snap)")
             if let postDict = snap.value as? Dictionary<String, AnyObject> {
               let id = snap.key
               
@@ -230,6 +228,7 @@ class FeedVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UIIm
                   let post = Post(postID: id, postData: postDict)
                   self.posts.append(post)
                 }
+                self.posts.sort(isOrderedBefore: {$0.date > $1.date})
                 self.tableView.reloadData()
               })
             }
@@ -238,10 +237,10 @@ class FeedVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UIIm
       })
     } else {
       
-      DataService.ds.REF_POSTS.observeSingleEvent(of: .value, with: { (snapshot) in
+      DataService.ds.REF_POSTS.queryOrdered(byChild: "date").observeSingleEvent(of: .value, with: { (snapshot) in
         if let snapshot = snapshot.children.allObjects as? [FIRDataSnapshot] {
           for snap in snapshot {
-            print("SNAP: \(snap)")
+            print("DZ: SNAP: \(snap)")
             if let postDict = snap.value as? Dictionary<String, AnyObject> {
               let id = snap.key
               let post = Post(postID: id, postData: postDict)
@@ -249,6 +248,7 @@ class FeedVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UIIm
             }
           }
         }
+        self.posts.sort(isOrderedBefore: { $0.date > $1.date })
         self.tableView.reloadData()
       })
     }

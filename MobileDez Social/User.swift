@@ -17,6 +17,7 @@ class User {
   private var _provider: String!
   private var _userName: String!
   private var _friendList: String!
+  private var _postList: String!
   private var _userID: String!
   private var _userRef: FIRDatabaseReference!
   
@@ -35,17 +36,22 @@ class User {
   var userName: String {
     return _userName
   }
+  
   var friendList: String {
     return _friendList
   }
   
+  var postList: String {
+    return _postList
+  }
   
-  init(likeList: String, imageURL: String, provider: String, userName: String, friendList: String) {
+  init(likeList: String, imageURL: String, provider: String, userName: String, friendList: String, postList: String) {
     self._likeList = likeList
     self._imageURL = imageURL
     self._provider = provider
     self._userName = userName
     self._friendList = friendList
+    self._postList = postList
   }
   
   
@@ -71,9 +77,12 @@ class User {
     
       if let friendList = userData["friendList"] as? String {
         self._friendList = friendList
-        
     }
-      
+
+    if let postList = userData["postList"] as? String {
+      self._postList = postList
+    }
+    
     _userRef = DataService.ds.REF_USER_CURRENT.child(userID)
   }
   

@@ -19,11 +19,12 @@ class PostCell: UITableViewCell {
   @IBOutlet weak var likesLbl: UILabel!
   @IBOutlet weak var likeImg: UIImageView!
   @IBOutlet weak var removeBtnView: UIButton!
+  @IBOutlet weak var friendImg: UIImageView!
   
   var delegate: UIViewController?
   
   var likesRef: FIRDatabaseReference!
-  var postOwner: FIRDatabaseReference!
+  var friendRef: FIRDatabaseReference!
   
   var post: Post!
   
@@ -36,13 +37,18 @@ class PostCell: UITableViewCell {
       likeImg.addGestureRecognizer(tap)
       likeImg.isUserInteractionEnabled = true
       
+      let tapFriend = UITapGestureRecognizer(target: self, action: #selector(friendTapped))
+      tapFriend.numberOfTapsRequired = 1
+      friendImg.addGestureRecognizer(tapFriend)
+      friendImg.isUserInteractionEnabled = true
     }
   
   func configureCell(post: Post, img: UIImage? = nil) {
     
     self.post = post
-    likesRef = DataService.ds.REF_USER_CURRENT.child("likes").child(post.postID)
-
+    likesRef = DataService.ds.REF_USER_CURRENT.child("likeList").child(post.postID)
+    friendRef = DataService.ds.REF_USER_CURRENT.child("friendList").child(post.postOwner)
+    
     DataService.ds.REF_USERS.child(post.postOwner).observeSingleEvent(of: .value, with: { (snapshot) in
     
         self.userNameLbl.text = snapshot.value!["userName"] as? String
@@ -76,13 +82,15 @@ class PostCell: UITableViewCell {
     self.caption.isUserInteractionEnabled = false
     self.likesLbl.text = "\(post.likes)"
     
-    // if post owner equals current user then display remove button
+    // if post owner equals current user then display remove button and remove friend image
     let uid = KeychainWrapper.stringForKey(KEY_UID)
 
     if post.postOwner == uid {
       self.removeBtnView.isHidden = false
+      self.friendImg.isHidden = true
     } else {
       self.removeBtnView.isHidden = true
+      self.friendImg.isHidden = false
     }
     
     if img != nil {
@@ -112,6 +120,16 @@ class PostCell: UITableViewCell {
         self.likeImg.image = UIImage(named: "filled-heart")
       }
     })
+
+    friendRef.observeSingleEvent(of: .value, with: { (snapshot) in
+      if let _ = snapshot.value as? NSNull {
+        self.friendImg.image = UIImage(named: "empty-friends")
+      } else {
+        self.friendImg.image = UIImage(named: "filled-friends")
+      }
+    })
+    
+    
     
   }
   
@@ -129,12 +147,29 @@ class PostCell: UITableViewCell {
         
         // if we are in the likes screen and a user unlikes post - we need to redraw
         self.likesLbl.text = "\(self.post.likes)"
-        if DataService.ds.feedTypeAll != true {
+        if FeedType.ft.feedTypeToShow == FeedType.FeedTypeEnum.likeFeed {
           NotificationCenter.default.post(name: feedRedrawName, object: nil)
         }
       }
     })
-    
+  }
+  
+    func friendTapped(sender: UITapGestureRecognizer) {
+      friendRef.observeSingleEvent(of: .value, with: { (snapshot) in
+        if let _ = snapshot.value as? NSNull {
+          self.friendImg.image = UIImage(named: "filled-friends")
+          self.friendRef.setValue(true)
+        } else {
+          self.friendImg.image = UIImage(named: "empty-friends")
+          self.friendRef.removeValue()
+          
+          // if we are in the likes screen and a user unlikes post - we need to redraw
+//          self.likesLbl.text = "\(self.post.likes)"
+//          if DataService.ds.feedTypeAll != true {
+//            NotificationCenter.default.post(name: feedRedrawName, object: nil)
+//          }
+        }
+      })
   }
   
   @IBAction func removeBtnTapped(_ sender: AnyObject) {

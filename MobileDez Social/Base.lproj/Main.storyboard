@@ -287,27 +287,35 @@
                                                                 <action selector="removeBtnTapped:" destination="eJ2-49-4wh" eventType="touchUpInside" id="CRC-iv-BVM"/>
                                                             </connections>
                                                         </button>
+                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="empty-friends" translatesAutoresizingMaskIntoConstraints="NO" id="TkZ-8e-mPY">
+                                                            <constraints>
+                                                                <constraint firstAttribute="width" constant="60" id="6NG-0G-zhl"/>
+                                                            </constraints>
+                                                        </imageView>
                                                     </subviews>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="trailing" secondItem="c8z-dv-B9W" secondAttribute="trailing" constant="62" id="4D0-aT-mRv"/>
+                                                        <constraint firstItem="jnq-If-rRK" firstAttribute="top" secondItem="c8z-dv-B9W" secondAttribute="bottom" constant="18" id="2su-hm-vGj"/>
+                                                        <constraint firstItem="TkZ-8e-mPY" firstAttribute="top" secondItem="OcD-lF-Psl" secondAttribute="top" constant="-5" id="6R5-iI-jo5"/>
                                                         <constraint firstItem="Toq-oT-pXf" firstAttribute="trailing" secondItem="6GA-Gr-gca" secondAttribute="trailing" id="8sX-2G-6kL"/>
                                                         <constraint firstItem="jnq-If-rRK" firstAttribute="top" secondItem="Toq-oT-pXf" secondAttribute="bottom" constant="23" id="8tf-yj-tqv"/>
-                                                        <constraint firstItem="Toq-oT-pXf" firstAttribute="centerY" secondItem="c8z-dv-B9W" secondAttribute="centerY" id="Cgo-sO-7EU"/>
                                                         <constraint firstItem="jnq-If-rRK" firstAttribute="centerX" secondItem="OcD-lF-Psl" secondAttribute="centerX" id="Dce-gR-uZa"/>
-                                                        <constraint firstItem="jnq-If-rRK" firstAttribute="top" secondItem="c8z-dv-B9W" secondAttribute="bottom" constant="42" id="EhG-Jn-PeF"/>
                                                         <constraint firstItem="iNc-DN-Sxc" firstAttribute="top" secondItem="6GA-Gr-gca" secondAttribute="bottom" constant="10" id="Jy7-hA-4mx"/>
                                                         <constraint firstItem="6GA-Gr-gca" firstAttribute="leading" secondItem="cpW-H4-XpZ" secondAttribute="leading" id="KdH-E8-aFf"/>
                                                         <constraint firstItem="iNc-DN-Sxc" firstAttribute="top" secondItem="OcD-lF-Psl" secondAttribute="top" constant="343" id="Tbw-1l-aYw"/>
                                                         <constraint firstItem="Toq-oT-pXf" firstAttribute="trailing" secondItem="OcD-lF-Psl" secondAttribute="trailingMargin" id="WME-Og-jNG"/>
                                                         <constraint firstItem="6GA-Gr-gca" firstAttribute="top" secondItem="jnq-If-rRK" secondAttribute="bottom" constant="2" id="WkZ-C6-UJt"/>
+                                                        <constraint firstItem="TkZ-8e-mPY" firstAttribute="leading" secondItem="cpW-H4-XpZ" secondAttribute="trailing" constant="3" id="ZNh-X6-Xc6"/>
                                                         <constraint firstAttribute="bottom" secondItem="iNc-DN-Sxc" secondAttribute="bottom" constant="2" id="cKd-H7-t3K"/>
-                                                        <constraint firstItem="c8z-dv-B9W" firstAttribute="leading" secondItem="cpW-H4-XpZ" secondAttribute="trailing" constant="8" symbolic="YES" id="cqd-cy-fgn"/>
+                                                        <constraint firstItem="jnq-If-rRK" firstAttribute="top" secondItem="TkZ-8e-mPY" secondAttribute="bottom" constant="33" id="dgV-ff-gry"/>
                                                         <constraint firstItem="Hix-vF-dnf" firstAttribute="top" secondItem="6GA-Gr-gca" secondAttribute="bottom" constant="13" id="e0H-bg-WY5"/>
                                                         <constraint firstItem="Toq-oT-pXf" firstAttribute="top" secondItem="cpW-H4-XpZ" secondAttribute="top" id="fJf-9v-lDC"/>
                                                         <constraint firstItem="jnq-If-rRK" firstAttribute="leading" secondItem="OcD-lF-Psl" secondAttribute="leading" constant="6" id="h7U-Kp-NYo"/>
+                                                        <constraint firstItem="c8z-dv-B9W" firstAttribute="centerY" secondItem="cpW-H4-XpZ" secondAttribute="centerY" constant="24" id="nLC-PO-25t"/>
+                                                        <constraint firstItem="Toq-oT-pXf" firstAttribute="leading" secondItem="c8z-dv-B9W" secondAttribute="trailing" constant="55" id="q5r-lx-gA3"/>
                                                         <constraint firstItem="Toq-oT-pXf" firstAttribute="trailing" secondItem="Hix-vF-dnf" secondAttribute="trailing" id="qca-66-Vfb"/>
                                                         <constraint firstItem="cpW-H4-XpZ" firstAttribute="leading" secondItem="OcD-lF-Psl" secondAttribute="leading" constant="5" id="qvQ-9h-ghP"/>
+                                                        <constraint firstItem="c8z-dv-B9W" firstAttribute="leading" secondItem="cpW-H4-XpZ" secondAttribute="trailing" constant="8" symbolic="YES" id="r6t-Qu-s1d"/>
                                                         <constraint firstItem="cpW-H4-XpZ" firstAttribute="top" secondItem="OcD-lF-Psl" secondAttribute="top" constant="5" id="uqv-tf-zRd"/>
                                                         <constraint firstItem="iNc-DN-Sxc" firstAttribute="leading" secondItem="OcD-lF-Psl" secondAttribute="leadingMargin" id="zkX-ek-AQ2"/>
                                                     </constraints>
@@ -324,6 +332,7 @@
                                         <color key="backgroundColor" red="0.81176470588235294" green="0.84705882352941175" blue="0.86274509803921573" alpha="1" colorSpace="calibratedRGB"/>
                                         <connections>
                                             <outlet property="caption" destination="6GA-Gr-gca" id="vCP-wa-qdG"/>
+                                            <outlet property="friendImg" destination="TkZ-8e-mPY" id="yKX-lf-hcG"/>
                                             <outlet property="likeImg" destination="Toq-oT-pXf" id="Ned-oC-V1j"/>
                                             <outlet property="likesLbl" destination="0P4-dR-y0P" id="4hF-uB-0IN"/>
                                             <outlet property="postImg" destination="jnq-If-rRK" id="FHg-Jd-XJb"/>
@@ -346,14 +355,28 @@
                                             <segue destination="fcD-dY-kzF" kind="show" identifier="goToProfile" id="S9m-Jr-Lsv"/>
                                         </connections>
                                     </barButtonItem>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="j9R-sg-GKC"/>
+                                    <barButtonItem image="list-view" id="r17-Ar-XsR">
+                                        <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <connections>
+                                            <action selector="allFeedBtnTapped:" destination="gh1-Bg-cKx" id="aSv-8I-d7w"/>
+                                        </connections>
+                                    </barButtonItem>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="UQM-Ez-4nr"/>
                                     <barButtonItem image="white-heart" id="eFr-sW-vNx">
                                         <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <connections>
-                                            <action selector="feedTypeTapped:" destination="gh1-Bg-cKx" id="UQB-qU-jRr"/>
+                                            <action selector="likeFeedBtnTapped:" destination="gh1-Bg-cKx" id="JVD-yp-WAI"/>
                                         </connections>
                                     </barButtonItem>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="B4m-na-QGE"/>
+                                    <barButtonItem image="white-friends" id="ekb-pW-HIC">
+                                        <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <connections>
+                                            <action selector="friendFeedBtnTapped:" destination="gh1-Bg-cKx" id="bWl-OB-mba"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="A88-CJ-131"/>
                                     <barButtonItem image="sign-out-btm" id="JCZ-I0-RTc">
                                         <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <connections>
@@ -395,7 +418,6 @@
                     </view>
                     <connections>
                         <outlet property="captionField" destination="kt6-PV-FVS" id="Uu5-nV-1fS"/>
-                        <outlet property="feedTypeImage" destination="eFr-sW-vNx" id="c1w-oa-OfH"/>
                         <outlet property="imageAdd" destination="Yx9-2P-OfK" id="UVE-zt-jln"/>
                         <outlet property="tableView" destination="ufY-G4-VcX" id="mY0-c4-Hys"/>
                         <segue destination="BYZ-38-t0r" kind="show" identifier="goToLogin" id="X2c-M4-40G"/>
@@ -708,15 +730,18 @@
         <image name="add-image" width="88" height="88"/>
         <image name="add-post" width="88" height="88"/>
         <image name="cancelpost_btn" width="54" height="54"/>
+        <image name="empty-friends" width="70" height="70"/>
         <image name="empty-heart" width="70" height="70"/>
         <image name="lg-profileImg" width="240" height="240"/>
+        <image name="list-view" width="30" height="30"/>
         <image name="profileImg" width="30" height="30"/>
         <image name="sign-out-btm" width="42" height="30"/>
+        <image name="white-friends" width="35" height="30"/>
         <image name="white-heart" width="30" height="30"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="X2c-M4-40G"/>
-        <segue reference="Z3q-Bn-rwh"/>
         <segue reference="S9m-Jr-Lsv"/>
+        <segue reference="Z3q-Bn-rwh"/>
+        <segue reference="X2c-M4-40G"/>
     </inferredMetricsTieBreakers>
 </document>

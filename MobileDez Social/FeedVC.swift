@@ -15,9 +15,7 @@ class FeedVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UIIm
   @IBOutlet weak var tableView: UITableView!
   @IBOutlet weak var imageAdd: CircleView!
   @IBOutlet weak var captionField: FancyFieldTextBox!
-  @IBOutlet weak var feedTypeImage: UIBarButtonItem!
 
-  
   var posts = [Post]()
   var imagePicker: UIImagePickerController!
   static var imageCache: Cache<NSString, UIImage> = Cache()
@@ -43,12 +41,6 @@ class FeedVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UIIm
 
         captionField.delegate = self
       
-        if DataService.ds.feedTypeAll == true {
-          feedTypeImage.image = UIImage(named: "white-heart")
-        } else {
-          feedTypeImage.image = UIImage(named: "list-view")
-        }
-
         // setup a redraw feed notification we can call from table cell
         NotificationCenter.default.addObserver(self, selector: #selector(FeedVC.redrawFeedTable), name: feedRedrawName, object: nil)
       
@@ -182,7 +174,6 @@ class FeedVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UIIm
   func postToFirebase (imgURL: String, imgID: String) {
     
     let uid = KeychainWrapper.stringForKey(KEY_UID)
-
     
     let post: Dictionary<String, AnyObject> = [
       "caption": captionField.text!,
@@ -196,6 +187,11 @@ class FeedVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UIIm
     let firebasePost = DataService.ds.REF_POSTS.childByAutoId()
     firebasePost.setValue(post)
 
+    let newPostRef = DataService.ds.REF_USER_CURRENT.child("postList").child(firebasePost.key)
+    newPostRef.setValue(true)
+
+    print("DZ: New Post ID - \(firebasePost.key)")
+    
     captionField.text = ""
     imageSelected = false
     imageAdd.image = UIImage(named: "add-image")
@@ -208,23 +204,37 @@ class FeedVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UIIm
     
     performSegue(withIdentifier: "goToProfile", sender: nil)
   }
-  
-  
-  @IBAction func feedTypeTapped(_ sender: AnyObject) {
 
-    if DataService.ds.feedTypeAll == true {
-      print("DZ: Switching to Heart Feed so display Full List Icon")
-      feedTypeImage.image = UIImage(named: "list-view")
-      DataService.ds.feedTypeAll = false
-    } else {
-      print("DZ: Switching to Full Feed so display Heart Icon")
-      feedTypeImage.image = UIImage(named: "white-heart")
-      DataService.ds.feedTypeAll = true
+
+  @IBAction func likeFeedBtnTapped(_ sender: AnyObject) {
+    
+    // only do if is not the like feed
+    if FeedType.ft.feedTypeToShow != FeedType.FeedTypeEnum.likeFeed {
+      FeedType.ft.feedTypeToShow = FeedType.FeedTypeEnum.likeFeed
+      redrawFeedTable()
     }
-    redrawFeedTable()
   }
-
   
+  
+  @IBAction func allFeedBtnTapped(_ sender: AnyObject) {
+
+    // only do if is not the all feed
+    if FeedType.ft.feedTypeToShow != FeedType.FeedTypeEnum.allFeed {
+      FeedType.ft.feedTypeToShow = FeedType.FeedTypeEnum.allFeed
+      redrawFeedTable()
+    }
+  
+  }
+  
+  
+  @IBAction func friendFeedBtnTapped(_ sender: AnyObject) {
+
+    // only do if is not the friend feed
+    if FeedType.ft.feedTypeToShow != FeedType.FeedTypeEnum.friendFeed {
+      FeedType.ft.feedTypeToShow = FeedType.FeedTypeEnum.friendFeed
+      redrawFeedTable()
+    }
+  }
   
   
   func redrawFeedTable() {
@@ -232,8 +242,10 @@ class FeedVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UIIm
     self.posts = []
     tableView.reloadData()
     
-    if DataService.ds.feedTypeAll != true {
-
+    switch FeedType.ft.feedTypeToShow {
+      
+    case .likeFeed:
+      
       DataService.ds.REF_POSTS.queryOrdered(byChild: "date").observeSingleEvent(of: .value, with: { (snapshot) in
         if let snapshot = snapshot.children.allObjects as? [FIRDataSnapshot] {
           for snap in snapshot {
@@ -241,11 +253,11 @@ class FeedVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UIIm
             if let postDict = snap.value as? Dictionary<String, AnyObject> {
               let id = snap.key
               
-              DataService.ds.REF_USER_CURRENT.child("likes").child(id).observeSingleEvent(of: .value, with: { (snapshot) in
+              DataService.ds.REF_USER_CURRENT.child("likeList").child(id).observeSingleEvent(of: .value, with: { (snapshot) in
                 if let _ = snapshot.value as? NSNull {
-                  print("DZ: Will not add this post becuase current user did not like it = \(id)")
+                  print("DZ: Will not add this post because current user did not like it = \(id)")
                 } else {
-                  print("DZ: Adding this post becuase current user did like it = \(id)")
+                  print("DZ: Adding this post because current user did like it = \(id)")
                   let post = Post(postID: id, postData: postDict)
                   self.posts.append(post)
                 }
@@ -256,7 +268,8 @@ class FeedVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UIIm
           }
         }
       })
-    } else {
+
+    case .allFeed:
       
       DataService.ds.REF_POSTS.queryOrdered(byChild: "date").observeSingleEvent(of: .value, with: { (snapshot) in
         if let snapshot = snapshot.children.allObjects as? [FIRDataSnapshot] {
@@ -272,8 +285,58 @@ class FeedVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UIIm
         self.posts.sort(isOrderedBefore: { $0.date > $1.date })
         self.tableView.reloadData()
       })
+    
+    case .friendFeed:
+  
+      // first find the friend list of the current user
+      // next read each friends post list
+      // get the friends posts
+      // sort the posts
+      // display
+      
+      DataService.ds.REF_USER_CURRENT.child("friendList").observeSingleEvent(of: .value, with: { snapshot in
+        if let snapshots = snapshot.children.allObjects as? [FIRDataSnapshot] {
+          for child in snapshots {
+            print("DZ: Friend = \(child.key)")
+
+          
+            DataService.ds.REF_USERS.child(child.key).child("postList").observeSingleEvent(of: .value, with: { snapshot in
+              if let snapshots = snapshot.children.allObjects as? [FIRDataSnapshot] {
+                for child in snapshots {
+                  print("DZ: Friend's Post = \(child.key)")
+
+                  DataService.ds.REF_POSTS.child(child.key).observeSingleEvent(of: .value, with: { (snapshot) in
+                    if let postDict = snapshot.value as? Dictionary<String, AnyObject> {
+                      let id = snapshot.key
+                      let post = Post(postID: id, postData: postDict)
+                      self.posts.append(post)
+                      print("DZ: Appending Friend's Post = \(id)")
+                    }
+                    self.posts.sort(isOrderedBefore: {$0.date > $1.date})
+                    self.tableView.reloadData()
+                  })
+                  
+                }
+              }
+              
+            })
+          
+          
+          }
+        }
+      })
+
+
+    
+
+      break
+    
+    case .searchFeed:
+      break
+      
     }
 
+  
   }
 
 

@@ -34,6 +34,7 @@ class SignInVC: UIViewController {
 
   
   override func viewDidAppear(_ animated: Bool) {
+       
     if let _ = KeychainWrapper.stringForKey(KEY_UID) {
       print("DZ: ID found in keychain")
       self.sendThemOnTheirWay()
@@ -146,12 +147,12 @@ class SignInVC: UIViewController {
   
   func sendThemOnTheirWay() {
 
-    // always start by showing entire feed not only likes
-    DataService.ds.feedTypeAll = true
-    
     // flush cache so we are fresssssh
     FeedVC.imageCache.removeAllObjects()
     FeedVC.profileImageCache.removeAllObjects()
+    
+    // start them on friends feed
+    FeedType.ft.feedTypeToShow = FeedType.FeedTypeEnum.friendFeed
   
     DataService.ds.REF_USER_CURRENT.observeSingleEvent(of: .value, with: { (snapshot) in
       

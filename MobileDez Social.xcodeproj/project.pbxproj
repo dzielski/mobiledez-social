@@ -12,6 +12,7 @@
 		16342EDB1D525F57005374EC /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16342EDA1D525F57005374EC /* User.swift */; };
 		16498A091D555BA600C26A5E /* CircleViewWithBorder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16498A081D555BA600C26A5E /* CircleViewWithBorder.swift */; };
 		16498A0B1D56234600C26A5E /* PasswordVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16498A0A1D56234500C26A5E /* PasswordVC.swift */; };
+		16498A0D1D5845E000C26A5E /* FeedType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16498A0C1D5845E000C26A5E /* FeedType.swift */; };
 		168AC9A81D4B88B1008F4F0C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 168AC9A71D4B88B1008F4F0C /* AppDelegate.swift */; };
 		168AC9AA1D4B88B1008F4F0C /* SignInVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 168AC9A91D4B88B1008F4F0C /* SignInVC.swift */; };
 		168AC9AD1D4B88B1008F4F0C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 168AC9AB1D4B88B1008F4F0C /* Main.storyboard */; };
@@ -37,6 +38,7 @@
 		16342EDA1D525F57005374EC /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		16498A081D555BA600C26A5E /* CircleViewWithBorder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CircleViewWithBorder.swift; sourceTree = "<group>"; };
 		16498A0A1D56234500C26A5E /* PasswordVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PasswordVC.swift; sourceTree = "<group>"; };
+		16498A0C1D5845E000C26A5E /* FeedType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedType.swift; sourceTree = "<group>"; };
 		168AC9A41D4B88B1008F4F0C /* MobileDez Social.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "MobileDez Social.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		168AC9A71D4B88B1008F4F0C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		168AC9A91D4B88B1008F4F0C /* SignInVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInVC.swift; sourceTree = "<group>"; };
@@ -154,6 +156,7 @@
 			isa = PBXGroup;
 			children = (
 				16F7D4CA1D4E51F5001B7F1E /* DataService.swift */,
+				16498A0C1D5845E000C26A5E /* FeedType.swift */,
 			);
 			name = Services;
 			sourceTree = "<group>";
@@ -320,6 +323,7 @@
 				16498A091D555BA600C26A5E /* CircleViewWithBorder.swift in Sources */,
 				16F7D4C61D4D4D86001B7F1E /* RoundBtn.swift in Sources */,
 				168AC9C11D4C0D95008F4F0C /* FancyView.swift in Sources */,
+				16498A0D1D5845E000C26A5E /* FeedType.swift in Sources */,
 				16CBD2121D51585E00BB98D8 /* ProfileVC.swift in Sources */,
 				168AC9C41D4C0E92008F4F0C /* Constants.swift in Sources */,
 				16F7D4C81D4E36D7001B7F1E /* PostCell.swift in Sources */,

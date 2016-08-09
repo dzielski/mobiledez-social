@@ -123,9 +123,9 @@ class PostCell: UITableViewCell {
 
     friendRef.observeSingleEvent(of: .value, with: { (snapshot) in
       if let _ = snapshot.value as? NSNull {
-        self.friendImg.image = UIImage(named: "empty-friends")
+        self.friendImg.image = UIImage(named: "add_friend-empty")
       } else {
-        self.friendImg.image = UIImage(named: "filled-friends")
+        self.friendImg.image = UIImage(named: "add_friend-filled")
       }
     })
     
@@ -157,17 +157,16 @@ class PostCell: UITableViewCell {
     func friendTapped(sender: UITapGestureRecognizer) {
       friendRef.observeSingleEvent(of: .value, with: { (snapshot) in
         if let _ = snapshot.value as? NSNull {
-          self.friendImg.image = UIImage(named: "filled-friends")
+          self.friendImg.image = UIImage(named: "add_friend-filled")
           self.friendRef.setValue(true)
         } else {
-          self.friendImg.image = UIImage(named: "empty-friends")
+          self.friendImg.image = UIImage(named: "add_friend-empty")
           self.friendRef.removeValue()
           
-          // if we are in the likes screen and a user unlikes post - we need to redraw
-//          self.likesLbl.text = "\(self.post.likes)"
-//          if DataService.ds.feedTypeAll != true {
-//            NotificationCenter.default.post(name: feedRedrawName, object: nil)
-//          }
+          // if we are in the friend screen and a user unlikes a user - we need to redraw
+          if FeedType.ft.feedTypeToShow == FeedType.FeedTypeEnum.friendFeed {
+            NotificationCenter.default.post(name: feedRedrawName, object: nil)
+          }
         }
       })
   }

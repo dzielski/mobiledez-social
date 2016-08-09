@@ -325,10 +325,7 @@ class FeedVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UIIm
           }
         }
       })
-
-
-    
-
+      
       break
     
     case .searchFeed:
@@ -339,6 +336,9 @@ class FeedVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UIIm
   
   }
 
+  @IBAction func searchBtnTapped(_ sender: AnyObject) {
+    performSegue(withIdentifier: "searchForUser", sender: nil)
+  }
 
   @IBAction func signOutTapped(_ sender: AnyObject) {
     let keychainResult = KeychainWrapper.removeObjectForKey(KEY_UID)

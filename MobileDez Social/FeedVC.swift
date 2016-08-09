@@ -15,6 +15,7 @@ class FeedVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UIIm
   @IBOutlet weak var tableView: UITableView!
   @IBOutlet weak var imageAdd: CircleView!
   @IBOutlet weak var captionField: FancyFieldTextBox!
+  @IBOutlet weak var topFeedType: UILabel!
 
   var posts = [Post]()
   var imagePicker: UIImagePickerController!
@@ -246,6 +247,8 @@ class FeedVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UIIm
       
     case .likeFeed:
       
+      topFeedType.text = "Liked Posts Feed"
+      
       DataService.ds.REF_POSTS.queryOrdered(byChild: "date").observeSingleEvent(of: .value, with: { (snapshot) in
         if let snapshot = snapshot.children.allObjects as? [FIRDataSnapshot] {
           for snap in snapshot {
@@ -271,6 +274,8 @@ class FeedVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UIIm
 
     case .allFeed:
       
+      topFeedType.text = "All Posts Feed"
+
       DataService.ds.REF_POSTS.queryOrdered(byChild: "date").observeSingleEvent(of: .value, with: { (snapshot) in
         if let snapshot = snapshot.children.allObjects as? [FIRDataSnapshot] {
           for snap in snapshot {
@@ -288,6 +293,8 @@ class FeedVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UIIm
     
     case .friendFeed:
   
+      topFeedType.text = "Friends Post Feed"
+
       // first find the friend list of the current user
       // next read each friends post list
       // get the friends posts

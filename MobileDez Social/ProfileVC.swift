@@ -115,6 +115,15 @@ class ProfileVC: UIViewController, UIImagePickerControllerDelegate, UINavigation
     let usrname = self.profileName.text!
     var checkForDups = true
     
+    if usrname.characters.count > 12 || usrname.characters.count < 4 {
+      print("DZ: User Name error")
+      
+      let alert = UIAlertController(title: "User Name Cannot Be Used", message: "Your user name needs to be between 4 and 12 charachers", preferredStyle: UIAlertControllerStyle.alert)
+      alert.addAction(UIAlertAction(title: "Try Again", style: UIAlertActionStyle.default, handler: nil))
+      self.present(alert, animated: true, completion: nil)
+      return
+    }
+    
     // if this is the user, no need to check for dup name
     if startingProfileName == usrname {
       checkForDups = false

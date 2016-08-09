@@ -43,34 +43,59 @@ class SignInVC: UIViewController {
   
   
   @IBAction func logInBtnTapped(_ sender: AnyObject) {
-    if let email = emailField.text, let pwd = pwdField.text {
-      FIRAuth.auth()?.signIn(withEmail: email, password: pwd, completion: { (user, error) in
-        if error == nil {
-          print("DZ: Email user authenticated with Firebase")
-          if let user = user {
-            let userData = ["provider": user.providerID]
-            self.completeSignIn(id: user.uid, userData: userData)
-          }
-        } else {
-          FIRAuth.auth()?.createUser(withEmail: email, password: pwd, completion: { (user, error) in
-            if error != nil {
-              print("DZ: Unable to authenticate user with emailwith Firebase - \(error)")
-            } else {
-              print("DZ: Sussusfully created and authenticated user with email with Firebase")
-              if let user = user {
-                let userData = ["provider": user.providerID]
-                
-                self.completeSignIn(id: user.uid, userData: userData)
-              }
-            }
-          })
-        }
-      })
+
+    guard let email = emailField.text, email != "" else {
+      print("DZ: User Name must be entered")
+
+      let alert = UIAlertController(title: "Email Address Is Empty", message: "You need to add a valid email address to log into the system or create an account.", preferredStyle: UIAlertControllerStyle.alert)
+      alert.addAction(UIAlertAction(title: "Try Again", style: UIAlertActionStyle.default, handler: nil))
+      self.present(alert, animated: true, completion: nil)
+      return
     }
-  
+    
+    guard let pwd = pwdField.text, pwd != "", pwd.characters.count >= 6 else {
+      print("DZ: Password Pre check error")
+      
+      let alert = UIAlertController(title: "Password Is Incorrect", message: "You need to include a password of 6 characters or longer to log into the system or create an account.", preferredStyle: UIAlertControllerStyle.alert)
+      alert.addAction(UIAlertAction(title: "Try Again", style: UIAlertActionStyle.default, handler: nil))
+      self.present(alert, animated: true, completion: nil)
+      return
+    }
+
+
+    FIRAuth.auth()?.signIn(withEmail: email, password: pwd, completion: { (user, error) in
+      if error == nil {
+        print("DZ: Email user authenticated with Firebase")
+        if let user = user {
+          let userData = ["provider": user.providerID]
+          self.completeSignIn(id: user.uid, userData: userData)
+        }
+      } else {
+        FIRAuth.auth()?.createUser(withEmail: email, password: pwd, completion: { (user, error) in
+          if error != nil {
+            
+            print("DZ: Firebase sign in error = \(error?.localizedDescription)")
+            
+            print("DZ: Unable to authenticate user with email with Firebase - \(error)")
+            let alert = UIAlertController(title: "Login Information Incorrect", message: "There was an error with your username or password and the database. Please try again.", preferredStyle: UIAlertControllerStyle.alert)
+            alert.addAction(UIAlertAction(title: "Try Again", style: UIAlertActionStyle.default, handler: nil))
+            self.present(alert, animated: true, completion: nil)
+            return
+          } else {
+            print("DZ: Sussusfully created and authenticated user with email with Firebase")
+            if let user = user {
+              let userData = ["provider": user.providerID]
+              
+              self.completeSignIn(id: user.uid, userData: userData)
+            }
+          }
+        })
+      }
+    })
   
   }
-//  @IBAction func facebookBtnTapped(_ sender: AnyObject) {
+
+  //  @IBAction func facebookBtnTapped(_ sender: AnyObject) {
 //    
 //    let facebookLogin = FBSDKLoginManager()
 //    

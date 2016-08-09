@@ -250,7 +250,7 @@
                                                         </imageView>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="username" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="c8z-dv-B9W">
                                                             <constraints>
-                                                                <constraint firstAttribute="height" constant="22" id="3Qq-up-XYc"/>
+                                                                <constraint firstAttribute="height" constant="22" id="Hil-jI-awe"/>
                                                             </constraints>
                                                             <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="17"/>
                                                             <color key="textColor" red="0.83529411764705885" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -273,7 +273,7 @@
                                                             <constraints>
                                                                 <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="72" id="9vJ-2x-Psd"/>
                                                             </constraints>
-                                                            <mutableString key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</mutableString>
+                                                            <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
                                                             <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="14"/>
                                                             <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                                         </textView>
@@ -301,28 +301,28 @@
                                                     </subviews>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <constraints>
+                                                        <constraint firstAttribute="trailing" secondItem="c8z-dv-B9W" secondAttribute="trailing" constant="67" id="2G1-be-NNT"/>
                                                         <constraint firstItem="Toq-oT-pXf" firstAttribute="trailing" secondItem="6GA-Gr-gca" secondAttribute="trailing" id="8sX-2G-6kL"/>
+                                                        <constraint firstItem="c8z-dv-B9W" firstAttribute="top" secondItem="TkZ-8e-mPY" secondAttribute="bottom" constant="1" id="AXA-VG-xm6"/>
                                                         <constraint firstAttribute="trailing" secondItem="Hix-vF-dnf" secondAttribute="trailing" constant="7" id="Bbz-6O-Pwo"/>
+                                                        <constraint firstItem="c8z-dv-B9W" firstAttribute="leading" secondItem="cpW-H4-XpZ" secondAttribute="trailing" constant="8" symbolic="YES" id="FNU-Kj-X6T"/>
                                                         <constraint firstItem="6GA-Gr-gca" firstAttribute="leading" secondItem="OcD-lF-Psl" secondAttribute="leading" constant="5" id="Hyn-Mf-mvX"/>
                                                         <constraint firstItem="iNc-DN-Sxc" firstAttribute="top" secondItem="6GA-Gr-gca" secondAttribute="bottom" constant="10" id="Jy7-hA-4mx"/>
                                                         <constraint firstItem="6GA-Gr-gca" firstAttribute="leading" secondItem="cpW-H4-XpZ" secondAttribute="leading" id="KdH-E8-aFf"/>
                                                         <constraint firstItem="Hix-vF-dnf" firstAttribute="trailing" secondItem="jnq-If-rRK" secondAttribute="trailing" id="NH5-dB-8wO"/>
-                                                        <constraint firstItem="jnq-If-rRK" firstAttribute="top" secondItem="c8z-dv-B9W" secondAttribute="bottom" constant="12" id="S06-sS-Zji"/>
                                                         <constraint firstItem="iNc-DN-Sxc" firstAttribute="top" secondItem="OcD-lF-Psl" secondAttribute="top" constant="343" id="Tbw-1l-aYw"/>
                                                         <constraint firstItem="jnq-If-rRK" firstAttribute="top" secondItem="OcD-lF-Psl" secondAttribute="top" constant="76" id="Vos-mX-EsP"/>
                                                         <constraint firstItem="Toq-oT-pXf" firstAttribute="trailing" secondItem="OcD-lF-Psl" secondAttribute="trailingMargin" id="WME-Og-jNG"/>
-                                                        <constraint firstItem="Toq-oT-pXf" firstAttribute="leading" secondItem="c8z-dv-B9W" secondAttribute="trailing" constant="55" id="WRO-a6-397"/>
                                                         <constraint firstAttribute="bottom" secondItem="iNc-DN-Sxc" secondAttribute="bottom" constant="2" id="cKd-H7-t3K"/>
                                                         <constraint firstItem="Toq-oT-pXf" firstAttribute="trailing" secondItem="OcD-lF-Psl" secondAttribute="trailingMargin" id="ckd-5h-OM9"/>
                                                         <constraint firstItem="Hix-vF-dnf" firstAttribute="top" secondItem="6GA-Gr-gca" secondAttribute="bottom" constant="13" id="e0H-bg-WY5"/>
-                                                        <constraint firstItem="c8z-dv-B9W" firstAttribute="top" secondItem="TkZ-8e-mPY" secondAttribute="bottom" constant="1" id="eDm-Xm-x4t"/>
                                                         <constraint firstItem="jnq-If-rRK" firstAttribute="leading" secondItem="OcD-lF-Psl" secondAttribute="leading" constant="6" id="elF-vX-2BK"/>
                                                         <constraint firstItem="Toq-oT-pXf" firstAttribute="top" secondItem="cpW-H4-XpZ" secondAttribute="top" id="fJf-9v-lDC"/>
                                                         <constraint firstItem="6GA-Gr-gca" firstAttribute="top" secondItem="jnq-If-rRK" secondAttribute="bottom" constant="4" id="fUF-hE-mhc"/>
+                                                        <constraint firstItem="jnq-If-rRK" firstAttribute="top" secondItem="c8z-dv-B9W" secondAttribute="bottom" constant="12" id="iY0-Ql-Ihs"/>
+                                                        <constraint firstItem="c8z-dv-B9W" firstAttribute="leading" secondItem="TkZ-8e-mPY" secondAttribute="leading" id="lhj-Tj-mtm"/>
                                                         <constraint firstItem="cpW-H4-XpZ" firstAttribute="leading" secondItem="OcD-lF-Psl" secondAttribute="leading" constant="5" id="qvQ-9h-ghP"/>
-                                                        <constraint firstItem="c8z-dv-B9W" firstAttribute="leading" secondItem="cpW-H4-XpZ" secondAttribute="trailing" constant="8" symbolic="YES" id="tyc-Z8-kr2"/>
                                                         <constraint firstItem="cpW-H4-XpZ" firstAttribute="top" secondItem="OcD-lF-Psl" secondAttribute="top" constant="5" id="uqv-tf-zRd"/>
-                                                        <constraint firstItem="TkZ-8e-mPY" firstAttribute="leading" secondItem="c8z-dv-B9W" secondAttribute="leading" id="wjj-zS-xiW"/>
                                                         <constraint firstItem="iNc-DN-Sxc" firstAttribute="leading" secondItem="OcD-lF-Psl" secondAttribute="leadingMargin" id="zkX-ek-AQ2"/>
                                                     </constraints>
                                                 </view>
@@ -868,8 +868,8 @@
         <image name="white-heart" width="30" height="30"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="X2c-M4-40G"/>
-        <segue reference="CIJ-Ro-d37"/>
         <segue reference="S9m-Jr-Lsv"/>
+        <segue reference="Z3q-Bn-rwh"/>
+        <segue reference="X2c-M4-40G"/>
     </inferredMetricsTieBreakers>
 </document>

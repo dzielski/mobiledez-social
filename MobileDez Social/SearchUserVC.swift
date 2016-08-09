@@ -40,6 +40,15 @@ class SearchUserVC: UIViewController, UITextFieldDelegate {
   @IBAction func findUserBtnTapped(_ sender: AnyObject) {
   
     let usrname = self.userNameTxtField.text!
+    
+    if usrname.characters.count > 12 || usrname.characters.count < 4 {
+      print("DZ: Username Error")
+      
+      let alert = UIAlertController(title: "User Name Cannot Be Searched", message: "The user name needs to be between 4 and 12 charachers", preferredStyle: UIAlertControllerStyle.alert)
+      alert.addAction(UIAlertAction(title: "Try Again", style: UIAlertActionStyle.default, handler: nil))
+      self.present(alert, animated: true, completion: nil)
+      return
+    }
 
     DataService.ds.REF_USERS.queryOrdered(byChild: "userName").queryEqual(toValue: usrname).observeSingleEvent(of: .value, with: { (snapshot) in
       

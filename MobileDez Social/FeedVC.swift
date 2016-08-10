@@ -19,6 +19,7 @@ class FeedVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UIIm
   @IBOutlet weak var allFeedBarBtnView: UIBarButtonItem!
   @IBOutlet weak var likeFeedBarBtnFeedView: UIBarButtonItem!
   @IBOutlet weak var friendFeedBarBtnView: UIBarButtonItem!
+  @IBOutlet weak var bottomBtnBar: UIToolbar!
 
   var posts = [Post]()
   var imagePicker: UIImagePickerController!
@@ -32,6 +33,8 @@ class FeedVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UIIm
   
     override func viewDidLoad() {
         super.viewDidLoad()
+      
+        bottomBtnBar.tintColor = UIColor(red: 67.0/255.0, green: 160.0/255.0, blue: 71.0/255.0, alpha: 1.0)
       
       let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(SignInVC.dismissKeyboard))
       view.addGestureRecognizer(tap)
@@ -254,7 +257,7 @@ class FeedVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UIIm
       likeFeedBarBtnFeedView.tintColor = UIColor(red: 211.0/255.0, green: 9.0/255.0, blue: 21.0/255.0, alpha: 1.0)
       friendFeedBarBtnView.tintColor = UIColor.white()
       
-      topFeedType.text = "Liked Posts Feed"
+      topFeedType.text = "Liked Posts"
       
       DataService.ds.REF_POSTS.queryOrdered(byChild: "date").observeSingleEvent(of: .value, with: { (snapshot) in
         if let snapshot = snapshot.children.allObjects as? [FIRDataSnapshot] {
@@ -285,7 +288,7 @@ class FeedVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UIIm
       likeFeedBarBtnFeedView.tintColor = UIColor.white()
       friendFeedBarBtnView.tintColor = UIColor.white()
 
-      topFeedType.text = "All Posts Feed"
+      topFeedType.text = "All Posts"
 
       DataService.ds.REF_POSTS.queryOrdered(byChild: "date").observeSingleEvent(of: .value, with: { (snapshot) in
         if let snapshot = snapshot.children.allObjects as? [FIRDataSnapshot] {
@@ -308,7 +311,7 @@ class FeedVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UIIm
       likeFeedBarBtnFeedView.tintColor = UIColor.white()
       friendFeedBarBtnView.tintColor = UIColor(red: 69.0/255.0, green: 45.0/255.0, blue: 157.0/255.0, alpha: 1.0)
 
-      topFeedType.text = "Friends Post Feed"
+      topFeedType.text = "Friends Posts"
 
       // first find the friend list of the current user
       // next read each friends post list

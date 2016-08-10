@@ -2,11 +2,12 @@
   "images" : [
     {
       "idiom" : "universal",
-      "filename" : "filled-friends.png",
+      "filename" : "HelpScreenSoSocial@1x.png",
       "scale" : "1x"
     },
     {
       "idiom" : "universal",
+      "filename" : "HelpScreenSoSocial@2x.png",
       "scale" : "2x"
     },
     {

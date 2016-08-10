@@ -259,25 +259,27 @@ class FeedVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UIIm
       
       topFeedType.text = "Liked Posts"
       
-      DataService.ds.REF_POSTS.queryOrdered(byChild: "date").observeSingleEvent(of: .value, with: { (snapshot) in
-        if let snapshot = snapshot.children.allObjects as? [FIRDataSnapshot] {
-          for snap in snapshot {
-            print("DZ: SNAP: \(snap)")
-            if let postDict = snap.value as? Dictionary<String, AnyObject> {
-              let id = snap.key
-              
-              DataService.ds.REF_USER_CURRENT.child("likeList").child(id).observeSingleEvent(of: .value, with: { (snapshot) in
-                if let _ = snapshot.value as? NSNull {
-                  print("DZ: Will not add this post because current user did not like it = \(id)")
-                } else {
-                  print("DZ: Adding this post because current user did like it = \(id)")
-                  let post = Post(postID: id, postData: postDict)
-                  self.posts.append(post)
-                }
-                self.posts.sort(isOrderedBefore: {$0.date > $1.date})
-                self.tableView.reloadData()
-              })
-            }
+      // first find the like list of the current user
+      // get the liked posts
+      // sort the posts
+      // display
+      
+      DataService.ds.REF_USER_CURRENT.child("likeList").observeSingleEvent(of: .value, with: { snapshot in
+        if let snapshots = snapshot.children.allObjects as? [FIRDataSnapshot] {
+          for child in snapshots {
+            print("DZ: Liked Post = \(child.key)")
+            
+            DataService.ds.REF_POSTS.child(child.key).observeSingleEvent(of: .value, with: { (snapshot) in
+              if let postDict = snapshot.value as? Dictionary<String, AnyObject> {
+                let id = snapshot.key
+                let post = Post(postID: id, postData: postDict)
+                self.posts.append(post)
+                print("DZ: Appending Like Post = \(id)")
+              }
+              self.posts.sort(isOrderedBefore: {$0.date > $1.date})
+              self.tableView.reloadData()
+            })
+            
           }
         }
       })

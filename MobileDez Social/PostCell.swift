@@ -134,19 +134,29 @@ class PostCell: UITableViewCell {
   }
   
   func likeTapped(sender: UITapGestureRecognizer) {
+
+    let uid = KeychainWrapper.stringForKey(KEY_UID)
+    
     likesRef.observeSingleEvent(of: .value, with: { (snapshot) in
       if let _ = snapshot.value as? NSNull {
         self.likeImg.image = UIImage(named: "filled-heart")
         self.post.adjustLikes(addLike: true)
         self.likesRef.setValue(true)
         self.likesLbl.text = "\(self.post.likes)"
+
+        // add a ref to the post of the user that liked it so when we delete post we can remove like ref
+        DataService.ds.REF_POSTS.child(self.post.postID).child("likeUsers").child(uid!).setValue(true)
+        
       } else {
         self.likeImg.image = UIImage(named: "empty-heart")
         self.post.adjustLikes(addLike: false)
         self.likesRef.removeValue()
         
-        // if we are in the likes screen and a user unlikes post - we need to redraw
         self.likesLbl.text = "\(self.post.likes)"
+
+        DataService.ds.REF_POSTS.child(self.post.postID).child("likeUsers").child(uid!).removeValue()
+        
+        // if we are in the likes screen and a user unlikes post - we need to redraw
         if FeedType.ft.feedTypeToShow == FeedType.FeedTypeEnum.likeFeed {
           NotificationCenter.default.post(name: feedRedrawName, object: nil)
         }
@@ -181,16 +191,28 @@ class PostCell: UITableViewCell {
     let actionYes = UIAlertAction(title: "Yes", style: .default) { (action:UIAlertAction) in
       print("DZ: You've pressed the Yes button");
       
-      //     try and remove it from FB storage
+      // try and remove it from FB storage
       DataService.ds.REF_POST_IMAGES.child(self.post.imgID).delete(completion: { (error) in
         if error != nil {
           print("DZ: Unable to delete image from Firebase storage")
         } else {
           print("DZ: Deleted image from Firebase storage")
-          // OK deleted from storage so delete from cache and then from posts
-          FeedVC.imageCache.removeObject(forKey: self.post.imageURL)
-          DataService.ds.REF_POSTS.child(self.post.postID).removeValue()
-          NotificationCenter.default.post(name: feedRedrawName, object: nil)
+          
+          // now we need to remove all like references of this post in users
+          DataService.ds.REF_POSTS.child(self.post.postID).child("likeUsers").observeSingleEvent(of: .value, with: { snapshot in
+            if let snapshots = snapshot.children.allObjects as? [FIRDataSnapshot] {
+              for child in snapshots {
+                print("DZ: Liked Post User Reference To Remove= \(child.key)")
+                
+                DataService.ds.REF_USERS.child(child.key).child("likeList").removeValue()
+                
+              }
+            }
+            // OK deleted from storage so delete from cache and then from posts
+            FeedVC.imageCache.removeObject(forKey: self.post.imageURL)
+            DataService.ds.REF_POSTS.child(self.post.postID).removeValue()
+            NotificationCenter.default.post(name: feedRedrawName, object: nil)
+          })
         }
       })
 

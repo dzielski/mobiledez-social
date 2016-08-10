@@ -204,10 +204,14 @@ class PostCell: UITableViewCell {
               for child in snapshots {
                 print("DZ: Liked Post User Reference To Remove= \(child.key)")
                 
-                DataService.ds.REF_USERS.child(child.key).child("likeList").removeValue()
+                DataService.ds.REF_USERS.child(child.key).child("likeList").child(self.post.postID).removeValue()
                 
               }
             }
+            
+            // and delete postList reference in current user
+            DataService.ds.REF_USER_CURRENT.child("postList").child(self.post.postID).removeValue()
+            
             // OK deleted from storage so delete from cache and then from posts
             FeedVC.imageCache.removeObject(forKey: self.post.imageURL)
             DataService.ds.REF_POSTS.child(self.post.postID).removeValue()

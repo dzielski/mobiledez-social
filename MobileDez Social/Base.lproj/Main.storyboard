@@ -259,7 +259,7 @@
                                                 <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="16"/>
                                                 <textInputTraits key="textInputTraits"/>
                                             </textField>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sz9-lb-EY2" customClass="RoundBtn" customModule="MobileDez_Social" customModuleProvider="target">
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sz9-lb-EY2" customClass="RoundBtnNoShadow" customModule="MobileDez_Social" customModuleProvider="target">
                                                 <color key="backgroundColor" red="0.96078431372549022" green="0.48627450980392156" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                 <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="18"/>
                                                 <state key="normal" title="Post"/>
@@ -942,8 +942,8 @@
         <image name="white-heart" width="30" height="30"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="S9m-Jr-Lsv"/>
         <segue reference="CIJ-Ro-d37"/>
+        <segue reference="S9m-Jr-Lsv"/>
         <segue reference="X2c-M4-40G"/>
     </inferredMetricsTieBreakers>
 </document>

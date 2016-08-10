@@ -174,6 +174,51 @@
             </objects>
             <point key="canvasLocation" x="-122.40000000000001" y="135.38230884557723"/>
         </scene>
+        <!--HelpVC-->
+        <scene sceneID="9I5-oN-ul1">
+            <objects>
+                <viewController id="HKj-TF-IIH" customClass="HelpVC" customModule="MobileDez_Social" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="noX-z9-WP8"/>
+                        <viewControllerLayoutGuide type="bottom" id="WlW-PP-PLk"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="eck-fj-DJX">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="HelpScreenSoSocial" translatesAutoresizingMaskIntoConstraints="NO" id="7Hr-SL-dTR">
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="667" id="P7c-cB-J1b"/>
+                                    <constraint firstAttribute="width" constant="375" id="iES-Rj-77K"/>
+                                </constraints>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BzC-Gd-t8N">
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="100" id="t9m-vG-NCu"/>
+                                </constraints>
+                                <state key="normal" image="Cancel"/>
+                                <connections>
+                                    <action selector="cancelBtnTapped:" destination="HKj-TF-IIH" eventType="touchUpInside" id="ztV-y6-AVi"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="7Hr-SL-dTR" firstAttribute="centerY" secondItem="eck-fj-DJX" secondAttribute="centerY" id="2Md-0N-yTd"/>
+                            <constraint firstItem="BzC-Gd-t8N" firstAttribute="top" secondItem="noX-z9-WP8" secondAttribute="bottom" constant="263" id="YhF-GN-UbR"/>
+                            <constraint firstItem="BzC-Gd-t8N" firstAttribute="centerX" secondItem="7Hr-SL-dTR" secondAttribute="centerX" id="fFB-Hg-zBE"/>
+                            <constraint firstItem="BzC-Gd-t8N" firstAttribute="centerY" secondItem="7Hr-SL-dTR" secondAttribute="centerY" id="gEb-QY-GRR"/>
+                            <constraint firstItem="7Hr-SL-dTR" firstAttribute="centerX" secondItem="eck-fj-DJX" secondAttribute="centerX" id="nSs-jV-lmQ"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <segue destination="gh1-Bg-cKx" kind="show" identifier="helpToFeed" id="vlV-Nz-LmZ"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="UoT-Qg-czN" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1544" y="-759"/>
+        </scene>
         <!--FeedVC-->
         <scene sceneID="iuE-Da-Y2B">
             <objects>
@@ -403,6 +448,17 @@
                                             <action selector="searchBtnTapped:" destination="gh1-Bg-cKx" eventType="touchUpInside" id="Nyp-1R-5uc"/>
                                         </connections>
                                     </button>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="right" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dP5-4j-k1F">
+                                        <frame key="frameInset" minX="299" minY="32" width="62" height="21"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="18"/>
+                                        <state key="normal" title="Help">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="helpBtnTapped:" destination="gh1-Bg-cKx" eventType="touchUpInside" id="03c-bz-Sbj"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" red="0.2627450980392157" green="0.62745098039215685" blue="0.27843137254901962" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
@@ -433,12 +489,16 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="allFeedBarBtnView" destination="r17-Ar-XsR" id="CcH-13-jgr"/>
                         <outlet property="captionField" destination="kt6-PV-FVS" id="Uu5-nV-1fS"/>
+                        <outlet property="friendFeedBarBtnView" destination="ekb-pW-HIC" id="PZH-VD-cgv"/>
                         <outlet property="imageAdd" destination="Yx9-2P-OfK" id="UVE-zt-jln"/>
+                        <outlet property="likeFeedBarBtnFeedView" destination="eFr-sW-vNx" id="Ddp-fj-g0f"/>
                         <outlet property="tableView" destination="ufY-G4-VcX" id="mY0-c4-Hys"/>
                         <outlet property="topFeedType" destination="i6i-L2-tEV" id="GPR-0c-FkP"/>
                         <segue destination="BYZ-38-t0r" kind="show" identifier="goToLogin" id="X2c-M4-40G"/>
                         <segue destination="rAO-0I-dk8" kind="show" identifier="searchForUser" id="mUc-Tc-C7h"/>
+                        <segue destination="HKj-TF-IIH" kind="show" identifier="showHelp" id="sDa-Ib-aYX"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WJ9-zQ-2oq" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -448,7 +508,7 @@
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="680.79999999999995" y="137.18140929535232"/>
+            <point key="canvasLocation" x="681" y="106"/>
         </scene>
         <!--ProfileVC-->
         <scene sceneID="Naq-Rn-PHr">
@@ -572,7 +632,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FEF-rG-92W" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <tapGestureRecognizer id="QyR-Ac-p3p" userLabel="Tap Gesture Rec background"/>
             </objects>
-            <point key="canvasLocation" x="680.79999999999995" y="888.30584707646187"/>
+            <point key="canvasLocation" x="680" y="1262"/>
         </scene>
         <!--PasswordVC-->
         <scene sceneID="W0w-F9-RLd">
@@ -851,6 +911,7 @@
     </scenes>
     <resources>
         <image name="Cancel" width="200" height="200"/>
+        <image name="HelpScreenSoSocial" width="750" height="1334"/>
         <image name="Rectangle 66" width="238" height="40"/>
         <image name="Rectangle 66 White" width="238" height="40"/>
         <image name="Rectangle-Cancel-1" width="125" height="21"/>
@@ -868,8 +929,8 @@
         <image name="white-heart" width="30" height="30"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="vlV-Nz-LmZ"/>
         <segue reference="S9m-Jr-Lsv"/>
-        <segue reference="Z3q-Bn-rwh"/>
         <segue reference="X2c-M4-40G"/>
     </inferredMetricsTieBreakers>
 </document>

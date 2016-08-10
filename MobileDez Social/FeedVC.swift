@@ -16,6 +16,9 @@ class FeedVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UIIm
   @IBOutlet weak var imageAdd: CircleView!
   @IBOutlet weak var captionField: FancyFieldTextBox!
   @IBOutlet weak var topFeedType: UILabel!
+  @IBOutlet weak var allFeedBarBtnView: UIBarButtonItem!
+  @IBOutlet weak var likeFeedBarBtnFeedView: UIBarButtonItem!
+  @IBOutlet weak var friendFeedBarBtnView: UIBarButtonItem!
 
   var posts = [Post]()
   var imagePicker: UIImagePickerController!
@@ -247,6 +250,10 @@ class FeedVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UIIm
       
     case .likeFeed:
       
+      allFeedBarBtnView.tintColor = UIColor.white()
+      likeFeedBarBtnFeedView.tintColor = UIColor(red: 211.0/255.0, green: 9.0/255.0, blue: 21.0/255.0, alpha: 1.0)
+      friendFeedBarBtnView.tintColor = UIColor.white()
+      
       topFeedType.text = "Liked Posts Feed"
       
       DataService.ds.REF_POSTS.queryOrdered(byChild: "date").observeSingleEvent(of: .value, with: { (snapshot) in
@@ -274,6 +281,10 @@ class FeedVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UIIm
 
     case .allFeed:
       
+      allFeedBarBtnView.tintColor = UIColor(red: 247.0/255.0, green: 143.0/255.0, blue: 37.0/255.0, alpha: 1.0)
+      likeFeedBarBtnFeedView.tintColor = UIColor.white()
+      friendFeedBarBtnView.tintColor = UIColor.white()
+
       topFeedType.text = "All Posts Feed"
 
       DataService.ds.REF_POSTS.queryOrdered(byChild: "date").observeSingleEvent(of: .value, with: { (snapshot) in
@@ -293,6 +304,10 @@ class FeedVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UIIm
     
     case .friendFeed:
   
+      allFeedBarBtnView.tintColor = UIColor.white()
+      likeFeedBarBtnFeedView.tintColor = UIColor.white()
+      friendFeedBarBtnView.tintColor = UIColor(red: 69.0/255.0, green: 45.0/255.0, blue: 157.0/255.0, alpha: 1.0)
+
       topFeedType.text = "Friends Post Feed"
 
       // first find the friend list of the current user
@@ -346,6 +361,13 @@ class FeedVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UIIm
   @IBAction func searchBtnTapped(_ sender: AnyObject) {
     performSegue(withIdentifier: "searchForUser", sender: nil)
   }
+  
+  @IBAction func helpBtnTapped(_ sender: AnyObject) {
+    performSegue(withIdentifier: "showHelp", sender: nil)
+  
+  }
+  
+  
 
   @IBAction func signOutTapped(_ sender: AnyObject) {
     let keychainResult = KeychainWrapper.removeObjectForKey(KEY_UID)

@@ -14,6 +14,7 @@
 		16498A0B1D56234600C26A5E /* PasswordVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16498A0A1D56234500C26A5E /* PasswordVC.swift */; };
 		16498A0D1D5845E000C26A5E /* FeedType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16498A0C1D5845E000C26A5E /* FeedType.swift */; };
 		16786E111D595C8D00901A10 /* SearchUserVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16786E101D595C8D00901A10 /* SearchUserVC.swift */; };
+		16786E131D5AA57400901A10 /* HelpVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16786E121D5AA57400901A10 /* HelpVC.swift */; };
 		168AC9A81D4B88B1008F4F0C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 168AC9A71D4B88B1008F4F0C /* AppDelegate.swift */; };
 		168AC9AA1D4B88B1008F4F0C /* SignInVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 168AC9A91D4B88B1008F4F0C /* SignInVC.swift */; };
 		168AC9AD1D4B88B1008F4F0C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 168AC9AB1D4B88B1008F4F0C /* Main.storyboard */; };
@@ -41,6 +42,7 @@
 		16498A0A1D56234500C26A5E /* PasswordVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PasswordVC.swift; sourceTree = "<group>"; };
 		16498A0C1D5845E000C26A5E /* FeedType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedType.swift; sourceTree = "<group>"; };
 		16786E101D595C8D00901A10 /* SearchUserVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchUserVC.swift; sourceTree = "<group>"; };
+		16786E121D5AA57400901A10 /* HelpVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HelpVC.swift; sourceTree = "<group>"; };
 		168AC9A41D4B88B1008F4F0C /* MobileDez Social.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "MobileDez Social.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		168AC9A71D4B88B1008F4F0C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		168AC9A91D4B88B1008F4F0C /* SignInVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInVC.swift; sourceTree = "<group>"; };
@@ -143,6 +145,7 @@
 				16CBD2111D51585E00BB98D8 /* ProfileVC.swift */,
 				16498A0A1D56234500C26A5E /* PasswordVC.swift */,
 				16786E101D595C8D00901A10 /* SearchUserVC.swift */,
+				16786E121D5AA57400901A10 /* HelpVC.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -313,6 +316,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				16786E131D5AA57400901A10 /* HelpVC.swift in Sources */,
 				16F7D4C41D4D4A76001B7F1E /* CircleView.swift in Sources */,
 				16786E111D595C8D00901A10 /* SearchUserVC.swift in Sources */,
 				168AC9AA1D4B88B1008F4F0C /* SignInVC.swift in Sources */,
